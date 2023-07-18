@@ -3,12 +3,12 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 
-	"github.com/aquasecurity/defsec/pkg/providers/google/iam"
+	"github.com/khulnasoft/defsec/pkg/providers/google/iam"
 
-	"github.com/aquasecurity/defsec/internal/adapters/terraform/tftestutil"
-	"github.com/aquasecurity/defsec/test/testutil"
+	"github.com/khulnasoft/defsec/internal/adapters/terraform/tftestutil"
+	"github.com/khulnasoft/defsec/test/testutil"
 )
 
 func Test_AdaptBinding(t *testing.T) {

@@ -10,14 +10,14 @@ import (
 	"strings"
 	"time"
 
-	"github.com/aquasecurity/defsec/pkg/debug"
+	"github.com/khulnasoft/defsec/pkg/debug"
 
-	"github.com/aquasecurity/defsec/pkg/scanners/options"
+	"github.com/khulnasoft/defsec/pkg/scanners/options"
 
-	tfcontext "github.com/aquasecurity/defsec/pkg/scanners/terraform/context"
-	"github.com/aquasecurity/defsec/pkg/terraform"
+	tfcontext "github.com/khulnasoft/defsec/pkg/scanners/terraform/context"
+	"github.com/khulnasoft/defsec/pkg/terraform"
 
-	"github.com/aquasecurity/defsec/pkg/extrafs"
+	"github.com/khulnasoft/defsec/pkg/extrafs"
 
 	"github.com/zclconf/go-cty/cty"
 

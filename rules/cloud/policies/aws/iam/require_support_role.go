@@ -1,18 +1,18 @@
 package iam
 
 import (
-	"github.com/aquasecurity/defsec/pkg/framework"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/framework"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 
-	"github.com/aquasecurity/defsec/pkg/severity"
+	"github.com/khulnasoft/defsec/pkg/severity"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/khulnasoft/defsec/pkg/state"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/khulnasoft/defsec/pkg/scan"
 
-	"github.com/aquasecurity/defsec/internal/rules"
+	"github.com/khulnasoft/defsec/internal/rules"
 
-	"github.com/aquasecurity/defsec/pkg/providers"
+	"github.com/khulnasoft/defsec/pkg/providers"
 )
 
 var CheckRequireSupportRole = rules.Register(

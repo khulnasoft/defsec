@@ -6,18 +6,18 @@ import (
 	"io/fs"
 	"sync"
 
-	"github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/types"
 
-	"github.com/aquasecurity/defsec/pkg/debug"
-	"github.com/aquasecurity/defsec/pkg/framework"
-	"github.com/aquasecurity/defsec/pkg/scanners/options"
+	"github.com/khulnasoft/defsec/pkg/debug"
+	"github.com/khulnasoft/defsec/pkg/framework"
+	"github.com/khulnasoft/defsec/pkg/scanners/options"
 
-	"github.com/aquasecurity/defsec/pkg/rego"
-	"github.com/aquasecurity/defsec/pkg/scanners/dockerfile/parser"
+	"github.com/khulnasoft/defsec/pkg/rego"
+	"github.com/khulnasoft/defsec/pkg/scanners/dockerfile/parser"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/khulnasoft/defsec/pkg/scan"
 
-	"github.com/aquasecurity/defsec/pkg/scanners"
+	"github.com/khulnasoft/defsec/pkg/scanners"
 )
 
 var _ scanners.FSScanner = (*Scanner)(nil)

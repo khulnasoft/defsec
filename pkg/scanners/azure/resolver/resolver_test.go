@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/aquasecurity/defsec/pkg/scanners/azure"
-	"github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/scanners/azure"
+	"github.com/khulnasoft/defsec/pkg/types"
 	"github.com/stretchr/testify/require"
 )
 

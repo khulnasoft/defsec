@@ -4,12 +4,12 @@ import (
 	"context"
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/framework"
-	"github.com/aquasecurity/defsec/pkg/scanners/options"
+	"github.com/khulnasoft/defsec/pkg/framework"
+	"github.com/khulnasoft/defsec/pkg/scanners/options"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/khulnasoft/defsec/pkg/scan"
 
-	"github.com/aquasecurity/defsec/test/testutil"
+	"github.com/khulnasoft/defsec/test/testutil"
 
 	"github.com/stretchr/testify/assert"
 

@@ -3,13 +3,13 @@ package cloudfront
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/cloudfront"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/cloudfront"
 
-	"github.com/aquasecurity/defsec/internal/adapters/terraform/tftestutil"
+	"github.com/khulnasoft/defsec/internal/adapters/terraform/tftestutil"
 
-	"github.com/aquasecurity/defsec/test/testutil"
+	"github.com/khulnasoft/defsec/test/testutil"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

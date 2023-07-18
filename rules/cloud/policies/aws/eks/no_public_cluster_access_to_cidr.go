@@ -3,17 +3,17 @@ package eks
 import (
 	"fmt"
 
-	"github.com/aquasecurity/defsec/pkg/severity"
+	"github.com/khulnasoft/defsec/pkg/severity"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/khulnasoft/defsec/pkg/state"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/khulnasoft/defsec/pkg/scan"
 
-	"github.com/aquasecurity/defsec/internal/rules"
+	"github.com/khulnasoft/defsec/internal/rules"
 
-	"github.com/aquasecurity/defsec/internal/cidr"
+	"github.com/khulnasoft/defsec/internal/cidr"
 
-	"github.com/aquasecurity/defsec/pkg/providers"
+	"github.com/khulnasoft/defsec/pkg/providers"
 )
 
 var CheckNoPublicClusterAccessToCidr = rules.Register(

@@ -9,15 +9,15 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/aquasecurity/defsec/pkg/terraform"
+	"github.com/khulnasoft/defsec/pkg/terraform"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/khulnasoft/defsec/pkg/state"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/khulnasoft/defsec/pkg/scan"
 
-	rules3 "github.com/aquasecurity/defsec/internal/rules"
+	rules3 "github.com/khulnasoft/defsec/internal/rules"
 
-	"github.com/aquasecurity/defsec/pkg/rego"
+	"github.com/khulnasoft/defsec/pkg/rego"
 )
 
 type Pool struct {

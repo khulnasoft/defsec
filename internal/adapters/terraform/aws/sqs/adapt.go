@@ -1,11 +1,11 @@
 package sqs
 
 import (
-	"github.com/aquasecurity/defsec/internal/adapters/terraform/aws/iam"
-	iamp "github.com/aquasecurity/defsec/pkg/providers/aws/iam"
-	"github.com/aquasecurity/defsec/pkg/providers/aws/sqs"
-	"github.com/aquasecurity/defsec/pkg/terraform"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/internal/adapters/terraform/aws/iam"
+	iamp "github.com/khulnasoft/defsec/pkg/providers/aws/iam"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/sqs"
+	"github.com/khulnasoft/defsec/pkg/terraform"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 	"github.com/liamg/iamgo"
 
 	"github.com/google/uuid"

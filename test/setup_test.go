@@ -4,19 +4,19 @@ import (
 	"context"
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/scanners/options"
+	"github.com/khulnasoft/defsec/pkg/scanners/options"
 
-	"github.com/aquasecurity/defsec/pkg/scanners/terraform/parser"
-	"github.com/aquasecurity/defsec/pkg/terraform"
+	"github.com/khulnasoft/defsec/pkg/scanners/terraform/parser"
+	"github.com/khulnasoft/defsec/pkg/terraform"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/khulnasoft/defsec/pkg/scan"
 
-	cfScanner "github.com/aquasecurity/defsec/pkg/scanners/cloudformation"
-	tfScanner "github.com/aquasecurity/defsec/pkg/scanners/terraform"
+	cfScanner "github.com/khulnasoft/defsec/pkg/scanners/cloudformation"
+	tfScanner "github.com/khulnasoft/defsec/pkg/scanners/terraform"
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/aquasecurity/defsec/test/testutil"
+	"github.com/khulnasoft/defsec/test/testutil"
 )
 
 func createModulesFromSource(t *testing.T, source string, ext string) terraform.Modules {

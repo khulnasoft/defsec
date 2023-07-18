@@ -1,13 +1,13 @@
 package database
 
 import (
-	"github.com/aquasecurity/defsec/internal/cidr"
-	"github.com/aquasecurity/defsec/internal/rules"
-	"github.com/aquasecurity/defsec/pkg/providers"
-	"github.com/aquasecurity/defsec/pkg/providers/azure/database"
-	"github.com/aquasecurity/defsec/pkg/scan"
-	"github.com/aquasecurity/defsec/pkg/severity"
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/khulnasoft/defsec/internal/cidr"
+	"github.com/khulnasoft/defsec/internal/rules"
+	"github.com/khulnasoft/defsec/pkg/providers"
+	"github.com/khulnasoft/defsec/pkg/providers/azure/database"
+	"github.com/khulnasoft/defsec/pkg/scan"
+	"github.com/khulnasoft/defsec/pkg/severity"
+	"github.com/khulnasoft/defsec/pkg/state"
 )
 
 var CheckNoPublicFirewallAccess = rules.Register(

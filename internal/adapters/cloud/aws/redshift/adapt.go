@@ -3,11 +3,11 @@ package redshift
 import (
 	"strings"
 
-	"github.com/aquasecurity/defsec/internal/adapters/cloud/aws"
-	"github.com/aquasecurity/defsec/pkg/concurrency"
-	"github.com/aquasecurity/defsec/pkg/providers/aws/redshift"
-	"github.com/aquasecurity/defsec/pkg/state"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
+	"github.com/khulnasoft/defsec/pkg/concurrency"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/redshift"
+	"github.com/khulnasoft/defsec/pkg/state"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 	api "github.com/aws/aws-sdk-go-v2/service/redshift"
 	"github.com/aws/aws-sdk-go-v2/service/redshift/types"
 )

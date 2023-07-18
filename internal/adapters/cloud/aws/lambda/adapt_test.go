@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/lambda"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/lambda"
 
 	"github.com/aws/aws-sdk-go-v2/service/lambda/types"
 
-	"github.com/aquasecurity/defsec/internal/adapters/cloud/aws"
-	"github.com/aquasecurity/defsec/internal/adapters/cloud/aws/test"
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
+	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws/test"
+	"github.com/khulnasoft/defsec/pkg/state"
 	lambdaapi "github.com/aws/aws-sdk-go-v2/service/lambda"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

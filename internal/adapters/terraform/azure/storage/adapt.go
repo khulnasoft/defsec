@@ -1,10 +1,10 @@
 package storage
 
 import (
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 
-	"github.com/aquasecurity/defsec/pkg/providers/azure/storage"
-	"github.com/aquasecurity/defsec/pkg/terraform"
+	"github.com/khulnasoft/defsec/pkg/providers/azure/storage"
+	"github.com/khulnasoft/defsec/pkg/terraform"
 )
 
 func Adapt(modules terraform.Modules) storage.Storage {

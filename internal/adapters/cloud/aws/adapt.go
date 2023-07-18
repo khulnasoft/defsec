@@ -4,17 +4,17 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/aquasecurity/defsec/pkg/concurrency"
-	"github.com/aquasecurity/defsec/pkg/errs"
-	"github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/concurrency"
+	"github.com/khulnasoft/defsec/pkg/errs"
+	"github.com/khulnasoft/defsec/pkg/types"
 
-	"github.com/aquasecurity/defsec/pkg/debug"
+	"github.com/khulnasoft/defsec/pkg/debug"
 
 	"github.com/aws/aws-sdk-go-v2/service/sts"
 
-	"github.com/aquasecurity/defsec/internal/adapters/cloud/options"
-	"github.com/aquasecurity/defsec/pkg/progress"
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/khulnasoft/defsec/internal/adapters/cloud/options"
+	"github.com/khulnasoft/defsec/pkg/progress"
+	"github.com/khulnasoft/defsec/pkg/state"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/aws/arn"
 	"github.com/aws/aws-sdk-go-v2/config"

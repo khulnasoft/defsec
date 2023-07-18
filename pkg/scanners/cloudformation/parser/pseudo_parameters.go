@@ -1,6 +1,6 @@
 package parser
 
-import "github.com/aquasecurity/defsec/pkg/scanners/cloudformation/cftypes"
+import "github.com/khulnasoft/defsec/pkg/scanners/cloudformation/cftypes"
 
 type pseudoParameter struct {
 	t   cftypes.CfType

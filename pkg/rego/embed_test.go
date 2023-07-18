@@ -3,8 +3,8 @@ package rego
 import (
 	"testing"
 
-	"github.com/aquasecurity/defsec/internal/rules"
-	rules2 "github.com/aquasecurity/defsec/rules"
+	"github.com/khulnasoft/defsec/internal/rules"
+	rules2 "github.com/khulnasoft/defsec/rules"
 	"github.com/open-policy-agent/opa/ast"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

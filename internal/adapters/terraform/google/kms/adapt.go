@@ -3,11 +3,11 @@ package kms
 import (
 	"strconv"
 
-	"github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/types"
 
-	"github.com/aquasecurity/defsec/pkg/terraform"
+	"github.com/khulnasoft/defsec/pkg/terraform"
 
-	"github.com/aquasecurity/defsec/pkg/providers/google/kms"
+	"github.com/khulnasoft/defsec/pkg/providers/google/kms"
 )
 
 func Adapt(modules terraform.Modules) kms.KMS {

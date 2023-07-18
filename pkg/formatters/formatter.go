@@ -6,11 +6,11 @@ import (
 	"os"
 	"sort"
 
-	"github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/types"
 
-	"github.com/aquasecurity/defsec/pkg/severity"
+	"github.com/khulnasoft/defsec/pkg/severity"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/khulnasoft/defsec/pkg/scan"
 
 	"github.com/liamg/tml"
 )

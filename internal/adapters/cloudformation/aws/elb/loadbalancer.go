@@ -1,9 +1,9 @@
 package elb
 
 import (
-	"github.com/aquasecurity/defsec/pkg/providers/aws/elb"
-	"github.com/aquasecurity/defsec/pkg/scanners/cloudformation/parser"
-	"github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/elb"
+	"github.com/khulnasoft/defsec/pkg/scanners/cloudformation/parser"
+	"github.com/khulnasoft/defsec/pkg/types"
 )
 
 func getLoadBalancers(ctx parser.FileContext) (loadbalancers []elb.LoadBalancer) {

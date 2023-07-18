@@ -6,9 +6,9 @@ import (
 	"strconv"
 	"strings"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 
-	"github.com/aquasecurity/defsec/pkg/scanners/cloudformation/cftypes"
+	"github.com/khulnasoft/defsec/pkg/scanners/cloudformation/cftypes"
 
 	"github.com/liamg/jfather"
 	"gopkg.in/yaml.v3"
@@ -241,13 +241,17 @@ func (p *Property) GetProperty(path string) *Property {
 	pathParts := strings.Split(path, ".")
 
 	first := pathParts[0]
-	var property *Property
+	property := p
 
-	if p.IsNotMap() {
+	if p.isFunction() {
+		property, _ = p.resolveValue()
+	}
+
+	if property.IsNotMap() {
 		return nil
 	}
 
-	for n, p := range p.AsMap() {
+	for n, p := range property.AsMap() {
 		if n == first {
 			property = p
 			break

@@ -1,8 +1,8 @@
 package ecs
 
 import (
-	"github.com/aquasecurity/defsec/internal/adapters/cloud/aws"
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
+	"github.com/khulnasoft/defsec/pkg/state"
 	ecsapi "github.com/aws/aws-sdk-go-v2/service/ecs"
 )
 

@@ -1,9 +1,9 @@
 package config
 
 import (
-	"github.com/aquasecurity/defsec/pkg/providers/aws/config"
-	"github.com/aquasecurity/defsec/pkg/terraform"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/config"
+	"github.com/khulnasoft/defsec/pkg/terraform"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 )
 
 func Adapt(modules terraform.Modules) config.Config {

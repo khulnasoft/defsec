@@ -1,9 +1,9 @@
 package cloudformation
 
 import (
-	"github.com/aquasecurity/defsec/internal/adapters/cloudformation/aws"
-	"github.com/aquasecurity/defsec/pkg/scanners/cloudformation/parser"
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/khulnasoft/defsec/internal/adapters/cloudformation/aws"
+	"github.com/khulnasoft/defsec/pkg/scanners/cloudformation/parser"
+	"github.com/khulnasoft/defsec/pkg/state"
 )
 
 // Adapt ...

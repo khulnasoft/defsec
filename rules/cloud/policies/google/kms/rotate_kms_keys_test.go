@@ -3,12 +3,12 @@ package kms
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/khulnasoft/defsec/pkg/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/google/kms"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/khulnasoft/defsec/pkg/providers/google/kms"
+	"github.com/khulnasoft/defsec/pkg/scan"
 
 	"github.com/stretchr/testify/assert"
 )

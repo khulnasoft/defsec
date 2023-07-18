@@ -1,9 +1,9 @@
 package container
 
 import (
-	"github.com/aquasecurity/defsec/pkg/providers/azure/container"
-	"github.com/aquasecurity/defsec/pkg/terraform"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/providers/azure/container"
+	"github.com/khulnasoft/defsec/pkg/terraform"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 )
 
 func Adapt(modules terraform.Modules) container.Container {

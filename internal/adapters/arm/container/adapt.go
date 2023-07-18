@@ -1,8 +1,8 @@
 package container
 
 import (
-	"github.com/aquasecurity/defsec/pkg/providers/azure/container"
-	"github.com/aquasecurity/defsec/pkg/scanners/azure"
+	"github.com/khulnasoft/defsec/pkg/providers/azure/container"
+	"github.com/khulnasoft/defsec/pkg/scanners/azure"
 )
 
 func Adapt(deployment azure.Deployment) container.Container {

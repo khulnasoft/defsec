@@ -1,8 +1,8 @@
 package sns
 
 import (
-	"github.com/aquasecurity/defsec/pkg/providers/aws/sns"
-	"github.com/aquasecurity/defsec/pkg/scanners/cloudformation/parser"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/sns"
+	"github.com/khulnasoft/defsec/pkg/scanners/cloudformation/parser"
 )
 
 // Adapt ...

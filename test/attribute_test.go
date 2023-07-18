@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/terraform"
+	"github.com/khulnasoft/defsec/pkg/terraform"
 	"github.com/stretchr/testify/assert"
 )
 

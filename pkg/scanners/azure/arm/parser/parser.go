@@ -8,15 +8,15 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/aquasecurity/defsec/pkg/debug"
-	"github.com/aquasecurity/defsec/pkg/scanners/azure"
-	"github.com/aquasecurity/defsec/pkg/scanners/azure/resolver"
+	"github.com/khulnasoft/defsec/pkg/debug"
+	"github.com/khulnasoft/defsec/pkg/scanners/azure"
+	"github.com/khulnasoft/defsec/pkg/scanners/azure/resolver"
 
-	"github.com/aquasecurity/defsec/pkg/scanners/options"
+	"github.com/khulnasoft/defsec/pkg/scanners/options"
 
-	"github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/types"
 
-	"github.com/aquasecurity/defsec/pkg/scanners/azure/arm/parser/armjson"
+	"github.com/khulnasoft/defsec/pkg/scanners/azure/arm/parser/armjson"
 )
 
 type Parser struct {

@@ -1,9 +1,9 @@
 package spaces
 
 import (
-	"github.com/aquasecurity/defsec/pkg/providers/digitalocean/spaces"
-	"github.com/aquasecurity/defsec/pkg/terraform"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/providers/digitalocean/spaces"
+	"github.com/khulnasoft/defsec/pkg/terraform"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 	"github.com/google/uuid"
 )
 

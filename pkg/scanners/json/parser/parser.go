@@ -7,10 +7,10 @@ import (
 	"io/fs"
 	"path/filepath"
 
-	"github.com/aquasecurity/defsec/pkg/debug"
+	"github.com/khulnasoft/defsec/pkg/debug"
 
-	"github.com/aquasecurity/defsec/pkg/detection"
-	"github.com/aquasecurity/defsec/pkg/scanners/options"
+	"github.com/khulnasoft/defsec/pkg/detection"
+	"github.com/khulnasoft/defsec/pkg/scanners/options"
 )
 
 var _ options.ConfigurableParser = (*Parser)(nil)

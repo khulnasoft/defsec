@@ -1,8 +1,8 @@
 package rds
 
 import (
-	"github.com/aquasecurity/defsec/pkg/providers/aws/rds"
-	"github.com/aquasecurity/defsec/pkg/scanners/cloudformation/parser"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/rds"
+	"github.com/khulnasoft/defsec/pkg/scanners/cloudformation/parser"
 )
 
 // Adapt ...

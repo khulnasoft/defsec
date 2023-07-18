@@ -1,9 +1,9 @@
 package redshift
 
 import (
-	"github.com/aquasecurity/defsec/pkg/providers/aws/redshift"
-	"github.com/aquasecurity/defsec/pkg/terraform"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/redshift"
+	"github.com/khulnasoft/defsec/pkg/terraform"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 )
 
 func Adapt(modules terraform.Modules) redshift.Redshift {

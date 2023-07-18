@@ -7,10 +7,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/aquasecurity/defsec/pkg/framework"
+	"github.com/khulnasoft/defsec/pkg/framework"
 
-	_ "github.com/aquasecurity/defsec/pkg/rego"
-	"github.com/aquasecurity/defsec/pkg/rules"
+	_ "github.com/khulnasoft/defsec/pkg/rego"
+	"github.com/khulnasoft/defsec/pkg/rules"
 )
 
 func main() {

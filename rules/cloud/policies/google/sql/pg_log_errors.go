@@ -1,12 +1,12 @@
 package sql
 
 import (
-	"github.com/aquasecurity/defsec/internal/rules"
-	"github.com/aquasecurity/defsec/pkg/providers"
-	"github.com/aquasecurity/defsec/pkg/providers/google/sql"
-	"github.com/aquasecurity/defsec/pkg/scan"
-	"github.com/aquasecurity/defsec/pkg/severity"
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/khulnasoft/defsec/internal/rules"
+	"github.com/khulnasoft/defsec/pkg/providers"
+	"github.com/khulnasoft/defsec/pkg/providers/google/sql"
+	"github.com/khulnasoft/defsec/pkg/scan"
+	"github.com/khulnasoft/defsec/pkg/severity"
+	"github.com/khulnasoft/defsec/pkg/state"
 )
 
 var CheckPgLogErrors = rules.Register(

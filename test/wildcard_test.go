@@ -4,15 +4,15 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/terraform"
+	"github.com/khulnasoft/defsec/pkg/terraform"
 
-	"github.com/aquasecurity/defsec/pkg/severity"
+	"github.com/khulnasoft/defsec/pkg/severity"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/khulnasoft/defsec/pkg/scan"
 
-	"github.com/aquasecurity/defsec/internal/rules"
+	"github.com/khulnasoft/defsec/internal/rules"
 
-	"github.com/aquasecurity/defsec/test/testutil"
+	"github.com/khulnasoft/defsec/test/testutil"
 )
 
 func Test_WildcardMatchingOnRequiredLabels(t *testing.T) {

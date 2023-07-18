@@ -1,8 +1,8 @@
 package athena
 
 import (
-	"github.com/aquasecurity/defsec/pkg/providers/aws/athena"
-	"github.com/aquasecurity/defsec/pkg/scanners/cloudformation/parser"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/athena"
+	"github.com/khulnasoft/defsec/pkg/scanners/cloudformation/parser"
 )
 
 func getWorkGroups(cfFile parser.FileContext) []athena.Workgroup {

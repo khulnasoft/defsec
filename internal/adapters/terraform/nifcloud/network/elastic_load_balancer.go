@@ -1,8 +1,8 @@
 package network
 
 import (
-	"github.com/aquasecurity/defsec/pkg/providers/nifcloud/network"
-	"github.com/aquasecurity/defsec/pkg/terraform"
+	"github.com/khulnasoft/defsec/pkg/providers/nifcloud/network"
+	"github.com/khulnasoft/defsec/pkg/terraform"
 )
 
 func adaptElasticLoadBalancers(modules terraform.Modules) []network.ElasticLoadBalancer {

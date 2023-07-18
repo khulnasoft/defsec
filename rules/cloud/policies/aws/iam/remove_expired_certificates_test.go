@@ -4,11 +4,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/aquasecurity/defsec/pkg/state"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/state"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/iam"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/iam"
+	"github.com/khulnasoft/defsec/pkg/scan"
 
 	"github.com/stretchr/testify/assert"
 )

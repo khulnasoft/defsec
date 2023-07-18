@@ -3,8 +3,8 @@ package parser
 import (
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/scanners/cloudformation/cftypes"
-	"github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/scanners/cloudformation/cftypes"
+	"github.com/khulnasoft/defsec/pkg/types"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -7,8 +7,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/scanners/options"
-	"github.com/aquasecurity/defsec/test/testutil"
+	"github.com/khulnasoft/defsec/pkg/scanners/options"
+	"github.com/khulnasoft/defsec/test/testutil"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

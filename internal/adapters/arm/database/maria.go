@@ -1,8 +1,8 @@
 package database
 
 import (
-	"github.com/aquasecurity/defsec/pkg/providers/azure/database"
-	"github.com/aquasecurity/defsec/pkg/scanners/azure"
+	"github.com/khulnasoft/defsec/pkg/providers/azure/database"
+	"github.com/khulnasoft/defsec/pkg/scanners/azure"
 )
 
 func adaptMariaDBServers(deployment azure.Deployment) (mariaDbServers []database.MariaDBServer) {

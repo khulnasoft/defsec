@@ -1,8 +1,8 @@
 package ec2
 
 import (
-	"github.com/aquasecurity/defsec/pkg/providers/aws/ec2"
-	"github.com/aquasecurity/defsec/pkg/scanners/cloudformation/parser"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/ec2"
+	"github.com/khulnasoft/defsec/pkg/scanners/cloudformation/parser"
 )
 
 func getVolumes(ctx parser.FileContext) (volumes []ec2.Volume) {

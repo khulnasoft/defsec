@@ -1,8 +1,8 @@
 package codebuild
 
 import (
-	"github.com/aquasecurity/defsec/pkg/providers/aws/codebuild"
-	"github.com/aquasecurity/defsec/pkg/scanners/cloudformation/parser"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/codebuild"
+	"github.com/khulnasoft/defsec/pkg/scanners/cloudformation/parser"
 )
 
 // Adapt ...

@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/redshift"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/redshift"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/aquasecurity/defsec/internal/adapters/terraform/tftestutil"
-	"github.com/aquasecurity/defsec/test/testutil"
+	"github.com/khulnasoft/defsec/internal/adapters/terraform/tftestutil"
+	"github.com/khulnasoft/defsec/test/testutil"
 )
 
 func Test_Adapt(t *testing.T) {

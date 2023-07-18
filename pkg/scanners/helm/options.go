@@ -1,8 +1,8 @@
 package helm
 
 import (
-	"github.com/aquasecurity/defsec/pkg/scanners/helm/parser"
-	"github.com/aquasecurity/defsec/pkg/scanners/options"
+	"github.com/khulnasoft/defsec/pkg/scanners/helm/parser"
+	"github.com/khulnasoft/defsec/pkg/scanners/options"
 )
 
 type ConfigurableHelmScanner interface {

@@ -3,7 +3,7 @@ package sql
 import (
 	"strings"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 )
 
 type SQL struct {
