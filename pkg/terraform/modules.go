@@ -3,7 +3,7 @@ package terraform
 import (
 	"fmt"
 
-	"github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/types"
 )
 
 type Modules []*Module
@@ -11,7 +11,7 @@ type Modules []*Module
 func (m Modules) ChildModulesPaths() []string {
 	var result []string
 	for _, module := range m {
-		if module.parent != nil {
+		if module.parent != nil && module.local {
 			result = append(result, module.modulePath)
 		}
 	}

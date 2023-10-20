@@ -1,4 +1,4 @@
-module github.com/aquasecurity/defsec
+module github.com/khulnasoft/defsec
 
 go 1.20
 
