@@ -4,7 +4,7 @@ import (
 	"io"
 	"io/fs"
 
-	"github.com/aquasecurity/defsec/pkg/framework"
+	"github.com/khulnasoft/defsec/pkg/framework"
 )
 
 type ConfigurableScanner interface {

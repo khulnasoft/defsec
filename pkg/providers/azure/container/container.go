@@ -1,7 +1,7 @@
 package container
 
 import (
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 )
 
 type Container struct {
