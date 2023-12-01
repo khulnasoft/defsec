@@ -7,9 +7,9 @@ import (
 	"reflect"
 	"strings"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 
-	"github.com/aquasecurity/defsec/pkg/severity"
+	"github.com/khulnasoft/defsec/pkg/severity"
 )
 
 type Status uint8

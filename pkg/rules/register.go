@@ -1,10 +1,10 @@
 package rules
 
 import (
-	"github.com/aquasecurity/defsec/internal/rules"
-	"github.com/aquasecurity/defsec/pkg/framework"
-	"github.com/aquasecurity/defsec/pkg/scan"
-	ruleTypes "github.com/aquasecurity/defsec/pkg/types/rules"
+	"github.com/khulnasoft/defsec/internal/rules"
+	"github.com/khulnasoft/defsec/pkg/framework"
+	"github.com/khulnasoft/defsec/pkg/scan"
+	ruleTypes "github.com/khulnasoft/defsec/pkg/types/rules"
 )
 
 func Register(rule scan.Rule) ruleTypes.RegisteredRule {

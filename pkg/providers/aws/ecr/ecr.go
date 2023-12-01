@@ -1,8 +1,8 @@
 package ecr
 
 import (
-	"github.com/aquasecurity/defsec/pkg/providers/aws/iam"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/iam"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 )
 
 type ECR struct {

@@ -9,12 +9,12 @@ import (
 	"io/fs"
 	"strings"
 
-	"github.com/aquasecurity/defsec/pkg/debug"
-	"github.com/aquasecurity/defsec/pkg/framework"
-	"github.com/aquasecurity/defsec/pkg/rego/schemas"
-	"github.com/aquasecurity/defsec/pkg/scan"
-	"github.com/aquasecurity/defsec/pkg/scanners/options"
-	"github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/debug"
+	"github.com/khulnasoft/defsec/pkg/framework"
+	"github.com/khulnasoft/defsec/pkg/rego/schemas"
+	"github.com/khulnasoft/defsec/pkg/scan"
+	"github.com/khulnasoft/defsec/pkg/scanners/options"
+	"github.com/khulnasoft/defsec/pkg/types"
 	"github.com/open-policy-agent/opa/ast"
 	"github.com/open-policy-agent/opa/rego"
 	"github.com/open-policy-agent/opa/storage"
@@ -275,7 +275,7 @@ func (s *Scanner) ScanInput(ctx context.Context, inputs ...Input) (scan.Results,
 }
 
 func isPolicyWithSubtype(sourceType types.Source) bool {
-	for _, s := range []types.Source{types.SourceCloud, types.SourceDefsec} { // TODO(simar): Add types.Kubernetes once all k8s policy have subtype
+	for _, s := range []types.Source{types.SourceCloud, types.SourceDefsec, types.SourceKubernetes} {
 		if sourceType == s {
 			return true
 		}

@@ -3,7 +3,7 @@
 
 Welcome, and thank you for considering contributing to defsec!
 
-The following guide gives an overview of the project and some directions on how to make common types of contribution. If something is missing, or you get stuck, please [start a discussion](https://github.com/aquasecurity/trivy/discussions/new) and we'll do our best to help.
+The following guide gives an overview of the project and some directions on how to make common types of contribution. If something is missing, or you get stuck, please [start a discussion](https://github.com/khulnasoft/tunnel/discussions/new) and we'll do our best to help.
 
 ## Project Overview
 
@@ -22,7 +22,7 @@ You can read more about the project overview on the [architecture](./ARCHITECTUR
 The following are guides for contributing to the project in specific ways. If you're not sure where to start, these are a good place to look. If you need some tips on getting started with contributing to open source in general, check out this useful [GitHub contribution guide](https://docs.github.com/en/get-started/quickstart/contributing-to-projects).
 
 ### Writing New Policies
-You can find a guide to writing new policies [here](https://github.com/aquasecurity/trivy-policies/blob/main/CONTRIBUTING.md#writing-rules)
+You can find a guide to writing new policies [here](https://github.com/khulnasoft/tunnel-policies/blob/main/CONTRIBUTING.md#writing-rules)
 
 ### Adding Support for a New Cloud Provider
 
