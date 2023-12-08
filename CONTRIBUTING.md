@@ -3,7 +3,7 @@
 
 Welcome, and thank you for considering contributing to defsec!
 
-The following guide gives an overview of the project and some directions on how to make common types of contribution. If something is missing, or you get stuck, please [start a discussion](https://github.com/aquasecurity/trivy/discussions/new) and we'll do our best to help.
+The following guide gives an overview of the project and some directions on how to make common types of contribution. If something is missing, or you get stuck, please [start a discussion](https://github.com/khulnasoft/tunnel/discussions/new) and we'll do our best to help.
 
 ## Project Overview
 
