@@ -1,14 +1,14 @@
 package rds
 
 import (
+	"github.com/aws/aws-sdk-go-v2/aws"
+	rdsApi "github.com/aws/aws-sdk-go-v2/service/rds"
+	"github.com/aws/aws-sdk-go-v2/service/rds/types"
 	aws2 "github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/rds"
 	"github.com/khulnasoft/defsec/pkg/state"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
-	"github.com/aws/aws-sdk-go-v2/aws"
-	rdsApi "github.com/aws/aws-sdk-go-v2/service/rds"
-	"github.com/aws/aws-sdk-go-v2/service/rds/types"
 )
 
 type adapter struct {

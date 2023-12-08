@@ -3,14 +3,14 @@ package api_gateway
 import (
 	"fmt"
 
+	"github.com/aws/aws-sdk-go-v2/aws/arn"
+	api "github.com/aws/aws-sdk-go-v2/service/accessanalyzer"
+	aatypes "github.com/aws/aws-sdk-go-v2/service/accessanalyzer/types"
 	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/accessanalyzer"
 	"github.com/khulnasoft/defsec/pkg/state"
 	"github.com/khulnasoft/defsec/pkg/types"
-	"github.com/aws/aws-sdk-go-v2/aws/arn"
-	api "github.com/aws/aws-sdk-go-v2/service/accessanalyzer"
-	aatypes "github.com/aws/aws-sdk-go-v2/service/accessanalyzer/types"
 )
 
 type adapter struct {

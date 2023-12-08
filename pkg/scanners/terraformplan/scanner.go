@@ -6,6 +6,7 @@ import (
 	"io"
 	"io/fs"
 
+	doublestar "github.com/bmatcuk/doublestar/v4"
 	"github.com/khulnasoft/defsec/pkg/debug"
 	"github.com/khulnasoft/defsec/pkg/framework"
 	"github.com/khulnasoft/defsec/pkg/scan"
@@ -13,7 +14,6 @@ import (
 	terraformScanner "github.com/khulnasoft/defsec/pkg/scanners/terraform"
 	"github.com/khulnasoft/defsec/pkg/scanners/terraform/executor"
 	"github.com/khulnasoft/defsec/pkg/scanners/terraformplan/parser"
-	doublestar "github.com/bmatcuk/doublestar/v4"
 )
 
 var tfPlanExts = []string{

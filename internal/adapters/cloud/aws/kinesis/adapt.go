@@ -1,12 +1,12 @@
 package kinesis
 
 import (
+	api "github.com/aws/aws-sdk-go-v2/service/kinesis"
 	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/kinesis"
 	"github.com/khulnasoft/defsec/pkg/state"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
-	api "github.com/aws/aws-sdk-go-v2/service/kinesis"
 )
 
 type adapter struct {

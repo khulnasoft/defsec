@@ -1,10 +1,10 @@
 package gke
 
 import (
+	"github.com/google/uuid"
 	"github.com/khulnasoft/defsec/pkg/providers/google/gke"
 	"github.com/khulnasoft/defsec/pkg/terraform"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
-	"github.com/google/uuid"
 	"github.com/zclconf/go-cty/cty"
 )
 

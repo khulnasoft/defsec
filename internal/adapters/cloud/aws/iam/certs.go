@@ -5,11 +5,11 @@ import (
 
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 
+	iamapi "github.com/aws/aws-sdk-go-v2/service/iam"
+	iamtypes "github.com/aws/aws-sdk-go-v2/service/iam/types"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/iam"
 	"github.com/khulnasoft/defsec/pkg/state"
-	iamapi "github.com/aws/aws-sdk-go-v2/service/iam"
-	iamtypes "github.com/aws/aws-sdk-go-v2/service/iam/types"
 )
 
 func (a *adapter) adaptServerCertificates(state *state.State) error {

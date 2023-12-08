@@ -1,10 +1,10 @@
 package openstack
 
 import (
+	"github.com/google/uuid"
 	"github.com/khulnasoft/defsec/pkg/providers/openstack"
 	"github.com/khulnasoft/defsec/pkg/terraform"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
-	"github.com/google/uuid"
 )
 
 func adaptNetworking(modules terraform.Modules) openstack.Networking {

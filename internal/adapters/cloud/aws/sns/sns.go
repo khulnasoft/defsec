@@ -1,13 +1,13 @@
 package sns
 
 import (
+	snsapi "github.com/aws/aws-sdk-go-v2/service/sns"
+	snsTypes "github.com/aws/aws-sdk-go-v2/service/sns/types"
 	aws2 "github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/sns"
 	"github.com/khulnasoft/defsec/pkg/state"
 	"github.com/khulnasoft/defsec/pkg/types"
-	snsapi "github.com/aws/aws-sdk-go-v2/service/sns"
-	snsTypes "github.com/aws/aws-sdk-go-v2/service/sns/types"
 )
 
 type adapter struct {
