@@ -133,7 +133,6 @@ require (
 	github.com/docker/go-metrics v0.0.1 // indirect
 	github.com/docker/go-units v0.5.0 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
-	github.com/elgohr/go-localstack v1.0.40 // indirect
 	github.com/emicklei/go-restful/v3 v3.10.1 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/evanphx/json-patch v5.6.0+incompatible // indirect
@@ -188,7 +187,6 @@ require (
 	github.com/mattn/go-isatty v0.0.17 // indirect
 	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
-	github.com/maxbrunsfeld/counterfeiter/v6 v6.5.0 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-testing-interface v1.14.1 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.1 // indirect
@@ -269,4 +267,4 @@ require (
 // See https://github.com/moby/moby/issues/42939#issuecomment-1114255529
 replace github.com/docker/docker => github.com/docker/docker v20.10.24+incompatible
 
-replace github.com/elgohr/go-localstack => github.com/khulnasoft/go-localstack v0.0.0-20231208052034-5cf5c5ea00ee
+replace github.com/elgohr/go-localstack => github.com/khulnasoft/go-localstack v0.0.0-20220706080605-1ec0e9b8753c
