@@ -5,13 +5,12 @@ import (
 	"embed"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
-
 	"github.com/khulnasoft/defsec/pkg/types"
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
-//go:embed testdata/policies
+//go:embed all:testdata/policies
 var testEmbedFS embed.FS
 
 func Test_RegoScanning_WithSomeInvalidPolicies(t *testing.T) {
@@ -20,9 +19,10 @@ func Test_RegoScanning_WithSomeInvalidPolicies(t *testing.T) {
 		scanner := NewScanner(types.SourceDockerfile)
 		scanner.SetRegoErrorLimit(0)
 		scanner.SetDebugWriter(&debugBuf)
-		p, _ := RecurseEmbeddedModules(testEmbedFS, ".")
-		scanner.policies = p
+		p, _ := LoadPoliciesFromDirs(testEmbedFS, ".")
+		require.NotNil(t, p)
 
+		scanner.policies = p
 		err := scanner.compilePolicies(testEmbedFS, []string{"policies"})
 		require.ErrorContains(t, err, `want (one of): ["Cmd" "EndLine" "Flags" "JSON" "Original" "Path" "Stage" "StartLine" "SubCmd" "Value"]`)
 		assert.Contains(t, debugBuf.String(), "Error(s) occurred while loading policies")
@@ -34,7 +34,7 @@ func Test_RegoScanning_WithSomeInvalidPolicies(t *testing.T) {
 		scanner.SetRegoErrorLimit(1)
 		scanner.SetDebugWriter(&debugBuf)
 
-		p, _ := RecurseEmbeddedModules(testEmbedFS, ".")
+		p, _ := LoadPoliciesFromDirs(testEmbedFS, ".")
 		scanner.policies = p
 
 		err := scanner.compilePolicies(testEmbedFS, []string{"policies"})
