@@ -188,6 +188,7 @@ func Test_AdaptVPC(t *testing.T) {
 						Rules: []ec2.NetworkACLRule{
 							{
 								Metadata: defsecTypes.NewTestMetadata(),
+
 								Type:     defsecTypes.String("ingress", defsecTypes.NewTestMetadata()),
 								Action:   defsecTypes.String("", defsecTypes.NewTestMetadata()),
 								Protocol: defsecTypes.String("-1", defsecTypes.NewTestMetadata()),

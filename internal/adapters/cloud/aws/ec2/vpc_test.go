@@ -2,7 +2,6 @@ package ec2
 
 import (
 	"testing"
-
 	"github.com/aws/aws-sdk-go-v2/aws"
 	vpcApi "github.com/aws/aws-sdk-go-v2/service/ec2"
 	vpcTypes "github.com/aws/aws-sdk-go-v2/service/ec2/types"

@@ -7,7 +7,6 @@ import (
 	"github.com/khulnasoft/defsec/pkg/providers/aws/lambda"
 
 	"github.com/aws/aws-sdk-go-v2/service/lambda/types"
-
 	lambdaapi "github.com/aws/aws-sdk-go-v2/service/lambda"
 	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws/test"
