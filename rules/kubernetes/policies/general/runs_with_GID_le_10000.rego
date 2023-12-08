@@ -1,5 +1,5 @@
 # METADATA
-# title: "Runs with low group ID"
+# title: "Runs with GID <= 10000"
 # description: "Force the container to run with group ID > 10000 to avoid conflicts with the host’s user table."
 # scope: package
 # schemas:
@@ -15,6 +15,15 @@
 #   input:
 #     selector:
 #     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV021
 
 import data.lib.kubernetes

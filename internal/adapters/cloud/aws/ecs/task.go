@@ -1,10 +1,10 @@
 package ecs
 
 import (
-	ecsapi "github.com/aws/aws-sdk-go-v2/service/ecs"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/ecs"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
+	ecsapi "github.com/aws/aws-sdk-go-v2/service/ecs"
 )
 
 func (a *adapter) getTaskDefinitions() ([]ecs.TaskDefinition, error) {

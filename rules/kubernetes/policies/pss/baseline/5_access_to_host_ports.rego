@@ -1,6 +1,6 @@
 # METADATA
 # title: "Access to host ports"
-# description: "HostPorts should be disallowed, or at minimum restricted to a known list."
+# description: "According to pod security standard 'Host Ports', hostPorts should be disallowed, or at minimum restricted to a known list."
 # scope: package
 # schemas:
 # - input: schema["kubernetes"]
@@ -15,6 +15,15 @@
 #   input:
 #     selector:
 #     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV024
 
 import data.lib.kubernetes

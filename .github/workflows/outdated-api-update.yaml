@@ -6,7 +6,7 @@ on:
 permissions:
   contents: write
 env:
-  GH_USER: nxpkg
+  GH_USER: khulnasoft-bot
   GO_VERSION: "1.18"
 jobs:
   outdated:
@@ -15,23 +15,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Fetch outdated API data from tunnel-db-data repo
+          token: ${{ secrets.AUTO_COMMIT_TOKEN }}
+      - name: Fetch outdated API data from trivy-db-data repo
         id: outdatedapi
         uses: fjogeleit/http-request-action@v1
         with:
-         url: 'https://raw.githubusercontent.com/khulnasoft/tunnel-db-data/main/k8s/api/k8s-outdated-api.json'
-         method: 'GET'
+          url: "https://raw.githubusercontent.com/khulnasoft/trivy-db-data/main/k8s/api/k8s-outdated-api.json"
+          method: "GET"
       - name: embed outdatedapi-data with in dynamic rego policy
         env:
           OUTDATE_API_DATA: ${{ toJson(steps.outdatedapi.outputs.response) }}
         run: |
           make outdated-api-updated
       - name: Setup OPA
-        run: |
-          curl -L -o opa https://openpolicyagent.org/downloads/latest/opa_linux_amd64
-          chmod 755 ./opa
-          sudo mv ./opa /usr/local/bin
+        uses: ./.github/actions/setup-opa
       - name: OPA Format
         run: |
           opa fmt -w . | grep -v vendor || true
@@ -39,4 +36,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update outdated-api policy data
-          push_options: --force   
+          push_options: --force

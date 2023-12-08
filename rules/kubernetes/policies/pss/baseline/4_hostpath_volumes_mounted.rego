@@ -1,6 +1,6 @@
 # METADATA
 # title: "hostPath volumes mounted"
-# description: "HostPath volumes must be forbidden."
+# description: "According to pod security standard 'HostPath Volumes', HostPath volumes must be forbidden."
 # scope: package
 # schemas:
 # - input: schema["kubernetes"]
@@ -15,6 +15,15 @@
 #   input:
 #     selector:
 #     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV023
 
 import data.lib.kubernetes

@@ -1,6 +1,6 @@
 # METADATA
-# title: "Default Seccomp profile not set"
-# description: "The RuntimeDefault/Localhost seccomp profile must be required, or allow specific additional profiles."
+# title: "Runtime/Default Seccomp profile not set"
+# description: "According to pod security standard 'Seccomp', the RuntimeDefault seccomp profile must be required, or allow specific additional profiles."
 # scope: package
 # schemas:
 # - input: schema["kubernetes"]
@@ -15,6 +15,15 @@
 #   input:
 #     selector:
 #     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV030
 
 import data.lib.kubernetes

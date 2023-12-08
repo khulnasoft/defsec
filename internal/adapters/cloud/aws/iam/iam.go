@@ -1,11 +1,11 @@
 package iam
 
 import (
-	iamapi "github.com/aws/aws-sdk-go-v2/service/iam"
 	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/iam"
 	"github.com/khulnasoft/defsec/pkg/state"
 	"github.com/khulnasoft/defsec/pkg/types"
+	iamapi "github.com/aws/aws-sdk-go-v2/service/iam"
 )
 
 type adapter struct {

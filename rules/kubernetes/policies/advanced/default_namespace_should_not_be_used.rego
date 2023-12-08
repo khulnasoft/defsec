@@ -1,6 +1,6 @@
 # METADATA
-# title: "The default namespace should not be used"
-# description: "ensure that default namespace should not be used"
+# title: "Workloads in the default namespace"
+# description: "Checks whether a workload is running in the default namespace."
 # scope: package
 # schemas:
 # - input: schema["kubernetes"]
@@ -11,22 +11,34 @@
 #   avd_id: AVD-KSV-0110
 #   severity: LOW
 #   short_code: default-namespace-should-not-be-used
-#   recommended_action: "Ensure that namespaces are created to allow for appropriate segregation of Kubernetes resources and that all new resources are created in a specific namespace."
+#   recommended_action: "Set 'metadata.namespace' to a non-default namespace."
 #   input:
 #     selector:
 #     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV110
 
 import data.lib.kubernetes
 
 default defaultNamespaceInUse = false
 
+allowedKinds := ["pod", "replicaset", "replicationcontroller", "deployment", "statefulset", "daemonset", "cronjob", "job"]
+
 defaultNamespaceInUse {
 	kubernetes.namespace == "default"
+	lower(kubernetes.kind) == allowedKinds[_]
 }
 
 deny[res] {
 	defaultNamespaceInUse
-	msg := sprintf("%s '%s' should not be set with 'default' namespace", [kubernetes.kind, kubernetes.name])
+	msg := kubernetes.format(sprintf("%s %s in %s namespace should set metadata.namespace to a non-default namespace", [lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, input.metadata.namespace)
 }

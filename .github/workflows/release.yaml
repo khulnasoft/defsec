@@ -4,16 +4,10 @@ on:
     tags:
       - "v*"
 env:
-  GH_USER: nxpkg
+  GH_USER: khulnasoft-bot
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      # This is used to complete the identity challenge
-      # with sigstore/fulcio when running outside of PRs.
-      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3

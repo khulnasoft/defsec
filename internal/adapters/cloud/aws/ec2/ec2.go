@@ -4,15 +4,15 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
+	"github.com/aws/aws-sdk-go-v2/aws"
 
-	ec2api "github.com/aws/aws-sdk-go-v2/service/ec2"
-	ec2Types "github.com/aws/aws-sdk-go-v2/service/ec2/types"
 	aws2 "github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/ec2"
 	"github.com/khulnasoft/defsec/pkg/state"
+	ec2api "github.com/aws/aws-sdk-go-v2/service/ec2"
+	ec2Types "github.com/aws/aws-sdk-go-v2/service/ec2/types"
 )
 
 type adapter struct {

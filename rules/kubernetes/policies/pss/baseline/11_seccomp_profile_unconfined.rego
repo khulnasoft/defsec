@@ -1,6 +1,6 @@
 # METADATA
-# title: "Seccomp profile unconfined"
-# description: "Seccomp profile must not be explicitly set to 'Unconfined'."
+# title: "Seccomp policies disabled"
+# description: "A program inside the container can bypass Seccomp protection policies."
 # scope: package
 # schemas:
 # - input: schema["kubernetes"]
@@ -11,29 +11,65 @@
 #   avd_id: AVD-KSV-0104
 #   severity: MEDIUM
 #   short_code: no-seccomp-unconfined
-#   recommended_action: "Do not set seccomp profile to 'Unconfined'"
+#   recommended_action: "Specify seccomp either by annotation or by seccomp profile type having allowed values as per pod security standards"
 #   input:
 #     selector:
 #     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV104
 
 import data.lib.kubernetes
 import data.lib.utils
 
-failSeccomp[profile] {
-	spec := input.spec
-	profile := spec.securityContext.seccompProfile
-	profile.type == "Unconfined"
+# getSeccompContainers returns all containers which have a seccomp
+# profile set and is profile not set to "unconfined"
+getSeccompContainers[container] {
+	some i
+	keys := [key | key := sprintf("%s/%s", [
+		"container.seccomp.security.alpha.kubernetes.io",
+		kubernetes.containers[_].name,
+	])]
+	seccomp := object.filter(kubernetes.annotations[_], keys)
+	val := seccomp[i]
+	val != "unconfined"
+	[a, c] := split(i, "/")
+	container = c
 }
 
-failSeccomp[profile] {
+# getNoSeccompContainers returns all containers which do not have
+# a seccomp profile specified or profile set to "unconfined"
+getNoSeccompContainers[container] {
+	container := kubernetes.containers[_].name
+	not getSeccompContainers[container]
+}
+
+# getContainersWithDisallowedSeccompProfileType returns all containers which have a seccomp
+# profile set and is profile set to "Unconfined"
+getContainersWithDisallowedSeccompProfileType[name] {
 	container := kubernetes.containers[_]
-	profile := container.securityContext.seccompProfile
-	profile.type == "Unconfined"
+	type := container.securityContext.seccompProfile.type
+	type == "Unconfined"
+	name = container.name
+}
+
+# getContainersWithDisallowedSeccompProfileType returns all containers which do not have
+# a seccomp profile type specified
+getContainersWithDisallowedSeccompProfileType[name] {
+	container := kubernetes.containers[_]
+	not container.securityContext.seccompProfile.type
+	name = container.name
 }
 
 deny[res] {
-	cause := failSeccomp[_]
-	msg := "You should not set Seccomp profile to 'Unconfined'."
+	cause := getContainersWithDisallowedSeccompProfileType[_]
+	msg := kubernetes.format(sprintf("container %s of %s %s in %s namespace should specify a seccomp profile", [getNoSeccompContainers[_], lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, cause)
 }

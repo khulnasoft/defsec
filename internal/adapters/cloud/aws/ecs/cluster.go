@@ -6,9 +6,9 @@ import (
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 
+	"github.com/khulnasoft/defsec/pkg/providers/aws/ecs"
 	ecsapi "github.com/aws/aws-sdk-go-v2/service/ecs"
 	"github.com/aws/aws-sdk-go-v2/service/ecs/types"
-	"github.com/khulnasoft/defsec/pkg/providers/aws/ecs"
 )
 
 func (a *adapter) getClusters() ([]ecs.Cluster, error) {

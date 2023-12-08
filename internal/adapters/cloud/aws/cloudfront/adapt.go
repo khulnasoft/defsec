@@ -1,13 +1,13 @@
 package cloudfront
 
 import (
-	api "github.com/aws/aws-sdk-go-v2/service/cloudfront"
-	"github.com/aws/aws-sdk-go-v2/service/cloudfront/types"
 	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/cloudfront"
 	"github.com/khulnasoft/defsec/pkg/state"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
+	api "github.com/aws/aws-sdk-go-v2/service/cloudfront"
+	"github.com/aws/aws-sdk-go-v2/service/cloudfront/types"
 )
 
 type adapter struct {

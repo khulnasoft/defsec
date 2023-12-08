@@ -6,11 +6,11 @@ import (
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 
-	api "github.com/aws/aws-sdk-go-v2/service/athena"
-	"github.com/aws/aws-sdk-go-v2/service/athena/types"
 	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/athena"
 	"github.com/khulnasoft/defsec/pkg/state"
+	api "github.com/aws/aws-sdk-go-v2/service/athena"
+	"github.com/aws/aws-sdk-go-v2/service/athena/types"
 )
 
 type adapter struct {

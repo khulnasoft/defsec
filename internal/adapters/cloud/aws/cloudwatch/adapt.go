@@ -1,15 +1,15 @@
 package cloudwatch
 
 import (
-	cwApi "github.com/aws/aws-sdk-go-v2/service/cloudwatch"
-	cwTypes "github.com/aws/aws-sdk-go-v2/service/cloudwatch/types"
-	api "github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs"
-	"github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs/types"
 	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/cloudwatch"
 	"github.com/khulnasoft/defsec/pkg/state"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
+	cwApi "github.com/aws/aws-sdk-go-v2/service/cloudwatch"
+	cwTypes "github.com/aws/aws-sdk-go-v2/service/cloudwatch/types"
+	api "github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs"
+	"github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs/types"
 )
 
 type adapter struct {

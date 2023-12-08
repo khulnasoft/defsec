@@ -1,5 +1,5 @@
 # METADATA
-# title: "HostProcess container defined"
+# title: "Access to host process"
 # description: "Windows pods offer the ability to run HostProcess containers which enable privileged access to the Windows node."
 # scope: package
 # schemas:
@@ -15,6 +15,15 @@
 #   input:
 #     selector:
 #     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV103
 
 import data.lib.kubernetes

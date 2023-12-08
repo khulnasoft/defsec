@@ -1,9 +1,9 @@
 package iam
 
 import (
-	"github.com/google/uuid"
 	"github.com/khulnasoft/defsec/pkg/providers/google/iam"
 	"github.com/khulnasoft/defsec/pkg/types"
+	"github.com/google/uuid"
 )
 
 // see https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_organization_iam

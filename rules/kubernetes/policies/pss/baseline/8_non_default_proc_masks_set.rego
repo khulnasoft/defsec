@@ -1,6 +1,6 @@
 # METADATA
 # title: "Non-default /proc masks set"
-# description: "The default /proc masks are set up to reduce attack surface, and should be required."
+# description: "According to pod security standard '/proc Mount Type', the default /proc masks are set up to reduce attack surface, and should be required."
 # scope: package
 # schemas:
 # - input: schema["kubernetes"]
@@ -15,6 +15,15 @@
 #   input:
 #     selector:
 #     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV027
 
 import data.lib.kubernetes

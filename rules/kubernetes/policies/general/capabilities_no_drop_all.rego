@@ -1,5 +1,5 @@
 # METADATA
-# title: "Default capabilities not dropped"
+# title: "Default capabilities: some containers do not drop all"
 # description: "The container should drop all default capabilities and add only those that are needed for its execution."
 # scope: package
 # schemas:
@@ -15,6 +15,15 @@
 #   input:
 #     selector:
 #     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV003
 
 import data.lib.kubernetes

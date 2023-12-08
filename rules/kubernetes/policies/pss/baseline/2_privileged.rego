@@ -1,5 +1,5 @@
 # METADATA
-# title: "Privileged container"
+# title: "Privileged"
 # description: "Privileged containers share namespaces with the host system and do not offer any security. They should be used exclusively for system containers that require high privileges."
 # scope: package
 # schemas:
@@ -15,6 +15,15 @@
 #   input:
 #     selector:
 #     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV017
 
 import data.lib.kubernetes

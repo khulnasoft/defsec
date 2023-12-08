@@ -74,9 +74,7 @@ func NewBlock(hclBlock *hcl.Block, ctx *context.Context, moduleBlock *Block, par
 	ref, _ := newReference(parts, parent)
 	if len(index) > 0 {
 		key := index[0]
-		if !key.IsNull() {
-			ref.SetKey(key)
-		}
+		ref.SetKey(key)
 	}
 
 	metadata := defsecTypes.NewMetadata(rng, ref.String())
@@ -301,7 +299,7 @@ func (b *Block) GetAttribute(name string) *Attribute {
 	return nil
 }
 
-func (b *Block) GetNestedAttribute(name string) *Attribute {
+func (b *Block) GetNestedAttribute(name string) (*Attribute, *Block) {
 
 	parts := strings.Split(name, ".")
 	blocks := parts[:len(parts)-1]
@@ -310,17 +308,21 @@ func (b *Block) GetNestedAttribute(name string) *Attribute {
 	working := b
 	for _, subBlock := range blocks {
 		if checkBlock := working.GetBlock(subBlock); checkBlock == nil {
-			return nil
+			return nil, working
 		} else {
 			working = checkBlock
 		}
 	}
 
 	if working != nil {
-		return working.GetAttribute(attrName)
+		return working.GetAttribute(attrName), working
 	}
 
-	return nil
+	return nil, b
+}
+
+func MapNestedAttribute[T any](block *Block, path string, f func(attr *Attribute, parent *Block) T) T {
+	return f(block.GetNestedAttribute(path))
 }
 
 // LocalName is the name relative to the current module

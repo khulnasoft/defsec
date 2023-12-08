@@ -3,11 +3,11 @@ package sns
 import (
 	"fmt"
 
-	"github.com/aws/aws-sdk-go-v2/aws"
-	snsapi "github.com/aws/aws-sdk-go-v2/service/sns"
 	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws/test"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/sns"
 	"github.com/khulnasoft/defsec/pkg/state"
+	"github.com/aws/aws-sdk-go-v2/aws"
+	snsapi "github.com/aws/aws-sdk-go-v2/service/sns"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 

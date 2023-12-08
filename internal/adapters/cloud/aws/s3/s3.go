@@ -3,16 +3,16 @@ package s3
 import (
 	"strings"
 
-	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
+	"github.com/aws/aws-sdk-go/aws/awserr"
 
-	s3api "github.com/aws/aws-sdk-go-v2/service/s3"
-	s3types "github.com/aws/aws-sdk-go-v2/service/s3/types"
 	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/iam"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/s3"
 	"github.com/khulnasoft/defsec/pkg/state"
+	s3api "github.com/aws/aws-sdk-go-v2/service/s3"
+	s3types "github.com/aws/aws-sdk-go-v2/service/s3/types"
 	"github.com/liamg/iamgo"
 )
 

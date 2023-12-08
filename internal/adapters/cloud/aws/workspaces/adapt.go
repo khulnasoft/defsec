@@ -1,13 +1,13 @@
 package workspaces
 
 import (
-	api "github.com/aws/aws-sdk-go-v2/service/workspaces"
-	"github.com/aws/aws-sdk-go-v2/service/workspaces/types"
 	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/workspaces"
 	"github.com/khulnasoft/defsec/pkg/state"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
+	api "github.com/aws/aws-sdk-go-v2/service/workspaces"
+	"github.com/aws/aws-sdk-go-v2/service/workspaces/types"
 )
 
 type adapter struct {

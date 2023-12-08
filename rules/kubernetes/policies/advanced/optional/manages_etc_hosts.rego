@@ -1,5 +1,5 @@
 # METADATA
-# title: "hostAliases is set"
+# title: "Manages /etc/hosts"
 # description: "Managing /etc/hosts aliases can prevent the container engine from modifying the file after a pod’s containers have already been started."
 # scope: package
 # schemas:
@@ -13,6 +13,15 @@
 #   input:
 #     selector:
 #     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV007
 
 import data.lib.kubernetes

@@ -1,15 +1,15 @@
 package sqs
 
 import (
-	"github.com/aws/aws-sdk-go-v2/aws"
-	sqsApi "github.com/aws/aws-sdk-go-v2/service/sqs"
-	sqsTypes "github.com/aws/aws-sdk-go-v2/service/sqs/types"
 	aws2 "github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/iam"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/sqs"
 	"github.com/khulnasoft/defsec/pkg/state"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
+	"github.com/aws/aws-sdk-go-v2/aws"
+	sqsApi "github.com/aws/aws-sdk-go-v2/service/sqs"
+	sqsTypes "github.com/aws/aws-sdk-go-v2/service/sqs/types"
 	"github.com/liamg/iamgo"
 )
 

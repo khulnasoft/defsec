@@ -27,6 +27,8 @@ func getClusters(ctx parser.FileContext) (clusters map[string]rds.Cluster) {
 			PublicAccess:         defsecTypes.BoolDefault(false, clusterResource.Metadata()),
 			Engine:               defsecTypes.StringDefault(rds.EngineAurora, clusterResource.Metadata()),
 			LatestRestorableTime: defsecTypes.TimeUnresolvable(clusterResource.Metadata()),
+			DeletionProtection:   defsecTypes.BoolDefault(false, clusterResource.Metadata()),
+			SkipFinalSnapshot:    defsecTypes.BoolDefault(false, clusterResource.Metadata()),
 		}
 
 		if engineProp := clusterResource.GetProperty("Engine"); engineProp.IsString() {

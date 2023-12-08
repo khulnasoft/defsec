@@ -2,7 +2,7 @@ package parser
 
 import (
 	"context"
-	"fmt"
+	"errors"
 	"io/fs"
 	"reflect"
 	"time"
@@ -15,7 +15,9 @@ import (
 	"github.com/khulnasoft/defsec/pkg/terraform"
 
 	"github.com/hashicorp/hcl/v2"
+	"github.com/hashicorp/hcl/v2/ext/typeexpr"
 	"github.com/zclconf/go-cty/cty"
+	"github.com/zclconf/go-cty/cty/convert"
 	"github.com/zclconf/go-cty/cty/gocty"
 )
 
@@ -152,7 +154,7 @@ func (e *evaluator) EvaluateAll(ctx context.Context) (terraform.Modules, map[str
 	parseDuration += time.Since(start)
 
 	e.debug.Log("Starting submodule evaluation...")
-	var modules []*terraform.Module
+	var modules terraform.Modules
 	for _, definition := range e.loadModules(ctx) {
 		submodules, outputs, err := definition.Parser.EvaluateAll(ctx)
 		if err != nil {
@@ -188,7 +190,12 @@ func (e *evaluator) EvaluateAll(ctx context.Context) (terraform.Modules, map[str
 
 	e.debug.Log("Module evaluation complete.")
 	parseDuration += time.Since(start)
-	return append([]*terraform.Module{terraform.NewModule(e.projectRootPath, e.modulePath, e.blocks, e.ignores)}, modules...), fsMap, parseDuration
+
+	rootModule := terraform.NewModule(e.projectRootPath, e.modulePath, e.blocks, e.ignores)
+	for _, m := range modules {
+		m.SetParent(rootModule)
+	}
+	return append(terraform.Modules{rootModule}, modules...), fsMap, parseDuration
 }
 
 func (e *evaluator) expandBlocks(blocks terraform.Blocks) terraform.Blocks {
@@ -337,29 +344,59 @@ func (e *evaluator) copyVariables(from, to *terraform.Block) {
 
 func (e *evaluator) evaluateVariable(b *terraform.Block) (cty.Value, error) {
 	if b.Label() == "" {
-		return cty.NilVal, fmt.Errorf("empty label - cannot resolve")
+		return cty.NilVal, errors.New("empty label - cannot resolve")
 	}
-	if override, exists := e.inputVars[b.Label()]; exists {
-		return override, nil
-	}
+
 	attributes := b.Attributes()
 	if attributes == nil {
-		return cty.NilVal, fmt.Errorf("cannot resolve variable with no attributes")
+		return cty.NilVal, errors.New("cannot resolve variable with no attributes")
 	}
-	if def, exists := attributes["default"]; exists {
-		return def.NullableValue(), nil
+
+	var valType cty.Type
+	var defaults *typeexpr.Defaults
+	if typeAttr, exists := attributes["type"]; exists {
+		ty, def, err := typeAttr.DecodeVarType()
+		if err != nil {
+			return cty.NilVal, err
+		}
+		valType = ty
+		defaults = def
 	}
-	return cty.NilVal, fmt.Errorf("no value found")
+
+	var val cty.Value
+
+	if override, exists := e.inputVars[b.Label()]; exists {
+		val = override
+	} else if def, exists := attributes["default"]; exists {
+		val = def.NullableValue()
+	} else {
+		return cty.NilVal, errors.New("no value found")
+	}
+
+	if valType != cty.NilType {
+		if defaults != nil {
+			val = defaults.Apply(val)
+		}
+
+		typedVal, err := convert.Convert(val, valType)
+		if err != nil {
+			return cty.NilVal, err
+		}
+		return typedVal, nil
+	}
+
+	return val, nil
+
 }
 
 func (e *evaluator) evaluateOutput(b *terraform.Block) (cty.Value, error) {
 	if b.Label() == "" {
-		return cty.NilVal, fmt.Errorf("empty label - cannot resolve")
+		return cty.NilVal, errors.New("empty label - cannot resolve")
 	}
 
 	attribute := b.GetAttribute("value")
 	if attribute.IsNil() {
-		return cty.NilVal, fmt.Errorf("cannot resolve variable with no attributes")
+		return cty.NilVal, errors.New("cannot resolve output with no attributes")
 	}
 	return attribute.Value(), nil
 }

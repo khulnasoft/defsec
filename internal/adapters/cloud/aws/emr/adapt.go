@@ -1,13 +1,13 @@
 package emr
 
 import (
-	api "github.com/aws/aws-sdk-go-v2/service/emr"
-	"github.com/aws/aws-sdk-go-v2/service/emr/types"
 	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/emr"
 	"github.com/khulnasoft/defsec/pkg/state"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
+	api "github.com/aws/aws-sdk-go-v2/service/emr"
+	"github.com/aws/aws-sdk-go-v2/service/emr/types"
 )
 
 type adapter struct {

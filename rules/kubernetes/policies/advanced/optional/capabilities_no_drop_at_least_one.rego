@@ -1,5 +1,5 @@
 # METADATA
-# title: "Unused capabilities should be dropped (drop any)"
+# title: "Default capabilities: some containers do not drop any"
 # description: "Security best practices require containers to run with minimal required capabilities."
 # scope: package
 # schemas:
@@ -15,6 +15,15 @@
 #   input:
 #     selector:
 #     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV004
 
 import data.lib.kubernetes

@@ -9,7 +9,7 @@ The following guide gives an overview of the project and some directions on how 
 
 _defsec_ is a library for defining security rules and policies in code, and the tools to apply those rules/cloud/policies to a variety of sources. The general architecture and project layout are defined in [ARCHITECTURE.md](ARCHITECTURE.md) - this is a great place to start exploring.
 
-_defsec_ is also the misconfiguration/IaC/Cloud scanning engine for Tunnel. Tunnel uses defsec internally as a library to perform various scans. 
+_defsec_ is also the misconfiguration/IaC/Cloud scanning engine for Trivy. Trivy uses defsec internally as a library to perform various scans. 
 
 ## Guides
 

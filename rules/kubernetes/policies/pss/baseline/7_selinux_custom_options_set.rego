@@ -1,6 +1,6 @@
 # METADATA
 # title: "SELinux custom options set"
-# description: "Setting a custom SELinux user or role option should be forbidden."
+# description: "According to pod security standard 'SElinux', setting custom SELinux options should be disallowed."
 # scope: package
 # schemas:
 # - input: schema["kubernetes"]
@@ -15,6 +15,15 @@
 #   input:
 #     selector:
 #     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV025
 
 import data.lib.kubernetes

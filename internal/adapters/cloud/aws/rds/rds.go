@@ -1,14 +1,14 @@
 package rds
 
 import (
-	"github.com/aws/aws-sdk-go-v2/aws"
-	rdsApi "github.com/aws/aws-sdk-go-v2/service/rds"
-	"github.com/aws/aws-sdk-go-v2/service/rds/types"
 	aws2 "github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/rds"
 	"github.com/khulnasoft/defsec/pkg/state"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
+	"github.com/aws/aws-sdk-go-v2/aws"
+	rdsApi "github.com/aws/aws-sdk-go-v2/service/rds"
+	"github.com/aws/aws-sdk-go-v2/service/rds/types"
 )
 
 type adapter struct {
@@ -248,6 +248,11 @@ func (a *adapter) adaptCluster(dbCluster types.DBCluster) (*rds.Cluster, error) 
 		engine = *dbCluster.Engine
 	}
 
+	var availabilityZones []defsecTypes.StringValue
+	for _, az := range dbCluster.AvailabilityZones {
+		availabilityZones = append(availabilityZones, defsecTypes.String(az, dbClusterMetadata))
+	}
+
 	cluster := &rds.Cluster{
 		Metadata:                  dbClusterMetadata,
 		BackupRetentionPeriodDays: defsecTypes.IntFromInt32(aws.ToInt32(dbCluster.BackupRetentionPeriod), dbClusterMetadata),
@@ -261,6 +266,9 @@ func (a *adapter) adaptCluster(dbCluster types.DBCluster) (*rds.Cluster, error) 
 		PublicAccess:         defsecTypes.Bool(aws.ToBool(dbCluster.PubliclyAccessible), dbClusterMetadata),
 		Engine:               defsecTypes.String(engine, dbClusterMetadata),
 		LatestRestorableTime: defsecTypes.TimeUnresolvable(dbClusterMetadata),
+		AvailabilityZones:    availabilityZones,
+		DeletionProtection:   defsecTypes.Bool(aws.ToBool(dbCluster.DeletionProtection), dbClusterMetadata),
+		SkipFinalSnapshot:    defsecTypes.Bool(false, dbClusterMetadata),
 	}
 
 	return cluster, nil

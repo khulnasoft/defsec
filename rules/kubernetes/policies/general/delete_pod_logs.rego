@@ -1,5 +1,5 @@
 # METADATA
-# title: "Do not allow deletion of pod logs"
+# title: "Delete pod logs"
 # description: "Used to cover attacker’s tracks, but most clusters ship logs quickly off-cluster."
 # scope: package
 # schemas:
@@ -15,6 +15,9 @@
 #   input:
 #     selector:
 #     - type: kubernetes
+#       subtypes:
+#         - kind: clusterrole
+#         - kind: role
 package builtin.kubernetes.KSV042
 
 import data.lib.kubernetes
