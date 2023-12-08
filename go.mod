@@ -29,7 +29,7 @@ require (
 	github.com/agnivade/levenshtein v1.1.1 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
-	github.com/khulnasoft/defsec v0.93.2-0.20231117234854-a13ada52a90f // indirect
+	github.com/aquasecurity/defsec v0.93.2-0.20231117234854-a13ada52a90f // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/cloudflare/circl v1.3.3 // indirect
