@@ -7,13 +7,13 @@ The following guide gives an overview of the project and some directions on how 
 
 ## Project Overview
 
-_defsec_ repo is a collection of shared libraries and packages that are imported by other useful packages such as `trivy-iac`, `trivy-aws` and also `Trivy` directly.
+_defsec_ repo is a collection of shared libraries and packages that are imported by other useful packages such as `tunnel-iac`, `tunnel-aws` and also `Tunnel` directly.
 
-_trivy-iac_ is the collection of all Infrastructure-as-code libraries and packages that Trivy uses to perform IaC scanning. It also where you can find `schemas` to write custom polices.
+_tunnel-iac_ is the collection of all Infrastructure-as-code libraries and packages that Tunnel uses to perform IaC scanning. It also where you can find `schemas` to write custom polices.
 
-_trivy-aws_ is the AWS scanning component of Trivy.
+_tunnel-aws_ is the AWS scanning component of Tunnel.
 
-_trivy-policies_ is the repo that holds all misconfiguration checks for `Trivy`. It also hosts the policy bundles for misconfiguration scanning that `Trivy` uses.
+_tunnel-policies_ is the repo that holds all misconfiguration checks for `Tunnel`. It also hosts the policy bundles for misconfiguration scanning that `Tunnel` uses.
 
 You can read more about the project overview on the [architecture](./ARCHITECTURE.md) page.
 
