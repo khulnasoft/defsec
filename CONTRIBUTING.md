@@ -3,7 +3,7 @@
 
 Welcome, and thank you for considering contributing to defsec!
 
-The following guide gives an overview of the project and some directions on how to make common types of contribution. If something is missing or you get stuck, please [jump on Slack](https://slack.aquasec.com/) or [start a discussion](https://github.com/khulnasoft/defsec/discussions/new) and we'll do our best to help.
+The following guide gives an overview of the project and some directions on how to make common types of contribution. If something is missing or you get stuck, please [jump on Slack](https://slack.khulnasoft.com/) or [start a discussion](https://github.com/khulnasoft/defsec/discussions/new) and we'll do our best to help.
 
 ## Project Overview
 
@@ -71,7 +71,7 @@ Let's break the metadata down.
 - `scope` is used to define the scope of the policy. In this case, we are defining a policy that applies to the entire package. _defsec_ only supports using package scope for metadata at the moment, so this should always be the same.
 - `schemas` tells Rego that it should use the `schema.input` to validate the use of the input data in the policy. Generally you can use this as-is in order to detect errors in your policy, such as referencing a policy which doesn't exist in the defsec schema.
 - `custom` is used to define custom fields that can be used by defsec to provide additional context to the policy and any related detections. This can contain the following:
-  - `avd_id` is the ID of the rule in the [AWS Vulnerability Database](https://avd.aquasec.com/). This is used to link the rule to the AVD entry. You can generate an ID to use for this field using `make id`.
+  - `avd_id` is the ID of the rule in the [AWS Vulnerability Database](https://avd.khulnasoft.com/). This is used to link the rule to the AVD entry. You can generate an ID to use for this field using `make id`.
   - `provider` is the name of the provider the rule targets. This should be the same as the provider name in the `pkg/providers` directory, e.g. `aws`.
   - `service` is the name of the service the rule targets. This should be the same as the service name in the `pkg/providers` directory, e.g. `rds`.
   - `severity` is the severity of the rule. This should be one of `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL`.
