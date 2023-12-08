@@ -66,7 +66,7 @@ resource "something" "else" {}
 
 }
 
-func Test_TrivyOptionWithAlternativeIDProvider(t *testing.T) {
+func Test_TunnelOptionWithAlternativeIDProvider(t *testing.T) {
 	reg := rules.Register(alwaysFailRule, nil)
 	defer rules.Deregister(reg)
 
@@ -76,7 +76,7 @@ func Test_TrivyOptionWithAlternativeIDProvider(t *testing.T) {
 		}),
 	}
 	results := scanWithOptions(t, `
-//trivy:ignore:altid
+//tunnel:ignore:altid
 resource "something" "else" {}
 `, options...)
 	require.Len(t, results.GetFailed(), 0)

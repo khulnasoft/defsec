@@ -216,132 +216,132 @@ resources = ["*"] # tfsec:ignore:aws-iam-enforce-mfa
 }
 }
 `, assertLength: 0},
-		{name: "TrivyIgnoreAll", inputOptions: `
+		{name: "TunnelIgnoreAll", inputOptions: `
 resource "bad" "my-rule" {
-    secure = false // trivy:ignore:*
+    secure = false // tunnel:ignore:*
 }
 `, assertLength: 0},
-		{name: "TrivyIgnoreLineAboveTheBlock", inputOptions: `
-// trivy:ignore:*
+		{name: "TunnelIgnoreLineAboveTheBlock", inputOptions: `
+// tunnel:ignore:*
 resource "bad" "my-rule" {
    secure = false 
 }
 `, assertLength: 0},
-		{name: "TrivyIgnoreLineAboveTheBlockMatchingParamBool", inputOptions: `
-// trivy:ignore:*[secure=false]
+		{name: "TunnelIgnoreLineAboveTheBlockMatchingParamBool", inputOptions: `
+// tunnel:ignore:*[secure=false]
 resource "bad" "my-rule" {
    secure = false
 }
 `, assertLength: 0},
-		{name: "TrivyIgnoreLineAboveTheBlockNotMatchingParamBool", inputOptions: `
-// trivy:ignore:*[secure=true]
+		{name: "TunnelIgnoreLineAboveTheBlockNotMatchingParamBool", inputOptions: `
+// tunnel:ignore:*[secure=true]
 resource "bad" "my-rule" {
    secure = false 
 }
 `, assertLength: 1},
-		{name: "TrivyIgnoreLineAboveTheBlockMatchingParamString", inputOptions: `
-// trivy:ignore:*[name=myrule]
+		{name: "TunnelIgnoreLineAboveTheBlockMatchingParamString", inputOptions: `
+// tunnel:ignore:*[name=myrule]
 resource "bad" "my-rule" {
     name = "myrule"
     secure = false
 }
 `, assertLength: 0},
-		{name: "TrivyIgnoreLineAboveTheBlockNotMatchingParamString", inputOptions: `
-// trivy:ignore:*[name=myrule2]
+		{name: "TunnelIgnoreLineAboveTheBlockNotMatchingParamString", inputOptions: `
+// tunnel:ignore:*[name=myrule2]
 resource "bad" "my-rule" {
     name = "myrule"
     secure = false 
 }
 `, assertLength: 1},
-		{name: "TrivyIgnoreLineAboveTheBlockMatchingParamInt", inputOptions: `
-// trivy:ignore:*[port=123]
+		{name: "TunnelIgnoreLineAboveTheBlockMatchingParamInt", inputOptions: `
+// tunnel:ignore:*[port=123]
 resource "bad" "my-rule" {
    secure = false
    port = 123
 }
 `, assertLength: 0},
-		{name: "TrivyIgnoreLineAboveTheBlockNotMatchingParamInt", inputOptions: `
-// trivy:ignore:*[port=456]
+		{name: "TunnelIgnoreLineAboveTheBlockNotMatchingParamInt", inputOptions: `
+// tunnel:ignore:*[port=456]
 resource "bad" "my-rule" {
    secure = false 
    port = 123
 }
 `, assertLength: 1},
-		{name: "TrivyIgnoreLineStackedAboveTheBlock", inputOptions: `
-// trivy:ignore:*
-// trivy:ignore:a
-// trivy:ignore:b
-// trivy:ignore:c
-// trivy:ignore:d
+		{name: "TunnelIgnoreLineStackedAboveTheBlock", inputOptions: `
+// tunnel:ignore:*
+// tunnel:ignore:a
+// tunnel:ignore:b
+// tunnel:ignore:c
+// tunnel:ignore:d
 resource "bad" "my-rule" {
    secure = false 
 }
 `, assertLength: 0},
-		{name: "TrivyIgnoreLineStackedAboveTheBlockWithoutMatch", inputOptions: `
-#trivy:ignore:*
+		{name: "TunnelIgnoreLineStackedAboveTheBlockWithoutMatch", inputOptions: `
+#tunnel:ignore:*
 
-#trivy:ignore:x
-#trivy:ignore:a
-#trivy:ignore:b
-#trivy:ignore:c
-#trivy:ignore:d
+#tunnel:ignore:x
+#tunnel:ignore:a
+#tunnel:ignore:b
+#tunnel:ignore:c
+#tunnel:ignore:d
 resource "bad" "my-rule" {
    secure = false 
 }
 `, assertLength: 1},
-		{name: "TrivyIgnoreLineStackedAboveTheBlockWithHashesWithoutSpaces", inputOptions: `
-#trivy:ignore:*
-#trivy:ignore:a
-#trivy:ignore:b
-#trivy:ignore:c
-#trivy:ignore:d
+		{name: "TunnelIgnoreLineStackedAboveTheBlockWithHashesWithoutSpaces", inputOptions: `
+#tunnel:ignore:*
+#tunnel:ignore:a
+#tunnel:ignore:b
+#tunnel:ignore:c
+#tunnel:ignore:d
 resource "bad" "my-rule" {
    secure = false 
 }
 `, assertLength: 0},
-		{name: "TrivyIgnoreLineStackedAboveTheBlockWithoutSpaces", inputOptions: `
-//trivy:ignore:*
-//trivy:ignore:a
-//trivy:ignore:b
-//trivy:ignore:c
-//trivy:ignore:d
+		{name: "TunnelIgnoreLineStackedAboveTheBlockWithoutSpaces", inputOptions: `
+//tunnel:ignore:*
+//tunnel:ignore:a
+//tunnel:ignore:b
+//tunnel:ignore:c
+//tunnel:ignore:d
 resource "bad" "my-rule" {
    secure = false 
 }
 `, assertLength: 0},
-		{name: "TrivyIgnoreLineAboveTheLine", inputOptions: `
+		{name: "TunnelIgnoreLineAboveTheLine", inputOptions: `
 resource "bad" "my-rule" {
-	# trivy:ignore:aws-service-abc123
+	# tunnel:ignore:aws-service-abc123
     secure = false
 }
 `, assertLength: 0},
-		{name: "TrivyIgnoreWithExpDateIfDateBreachedThenDontIgnore", inputOptions: `
+		{name: "TunnelIgnoreWithExpDateIfDateBreachedThenDontIgnore", inputOptions: `
 resource "bad" "my-rule" {
-    secure = false # trivy:ignore:aws-service-abc123:exp:2000-01-02
+    secure = false # tunnel:ignore:aws-service-abc123:exp:2000-01-02
 }
 `, assertLength: 1},
-		{name: "TrivyIgnoreWithExpDateIfDateNotBreachedThenIgnoreIgnore", inputOptions: `
+		{name: "TunnelIgnoreWithExpDateIfDateNotBreachedThenIgnoreIgnore", inputOptions: `
 resource "bad" "my-rule" {
-    secure = false # trivy:ignore:aws-service-abc123:exp:2221-01-02
+    secure = false # tunnel:ignore:aws-service-abc123:exp:2221-01-02
 }
 `, assertLength: 0},
-		{name: "TrivyIgnoreWithExpDateIfDateInvalidThenDropTheIgnore", inputOptions: `
+		{name: "TunnelIgnoreWithExpDateIfDateInvalidThenDropTheIgnore", inputOptions: `
 resource "bad" "my-rule" {
-   secure = false # trivy:ignore:aws-service-abc123:exp:2221-13-02
+   secure = false # tunnel:ignore:aws-service-abc123:exp:2221-13-02
 }
 `, assertLength: 1},
-		{name: "TrivyIgnoreAboveResourceBlockWithExpDateIfDateNotBreachedThenIgnoreIgnore", inputOptions: `
-#trivy:ignore:aws-service-abc123:exp:2221-01-02
+		{name: "TunnelIgnoreAboveResourceBlockWithExpDateIfDateNotBreachedThenIgnoreIgnore", inputOptions: `
+#tunnel:ignore:aws-service-abc123:exp:2221-01-02
 resource "bad" "my-rule" {
 }
 `, assertLength: 0},
-		{name: "TrivyIgnoreAboveResourceBlockWithExpDateAndMultipleIgnoresIfDateNotBreachedThenIgnoreIgnore", inputOptions: `
-# trivy:ignore:aws-service-abc123:exp:2221-01-02
+		{name: "TunnelIgnoreAboveResourceBlockWithExpDateAndMultipleIgnoresIfDateNotBreachedThenIgnoreIgnore", inputOptions: `
+# tunnel:ignore:aws-service-abc123:exp:2221-01-02
 resource "bad" "my-rule" {
 	
 }
 `, assertLength: 0},
-		{name: "TrivyIgnoreForImpliedIAMResource", inputOptions: `
+		{name: "TunnelIgnoreForImpliedIAMResource", inputOptions: `
 terraform {
 required_version = "~> 1.1.6"
 
@@ -355,33 +355,33 @@ version = "~> 3.48"
 
 # Retrieve an IAM group defined outside of this Terraform config.
 
-# trivy:ignore:aws-iam-enforce-mfa
+# tunnel:ignore:aws-iam-enforce-mfa
 data "aws_iam_group" "externally_defined_group" {
-group_name = "group-name" # trivy:ignore:aws-iam-enforce-mfa
+group_name = "group-name" # tunnel:ignore:aws-iam-enforce-mfa
 }
 
 # Create an IAM policy and attach it to the group.
 
-# trivy:ignore:aws-iam-enforce-mfa
+# tunnel:ignore:aws-iam-enforce-mfa
 resource "aws_iam_policy" "test_policy" {
-name   = "test-policy" # trivy:ignore:aws-iam-enforce-mfa
-policy = data.aws_iam_policy_document.test_policy.json # trivy:ignore:aws-iam-enforce-mfa
+name   = "test-policy" # tunnel:ignore:aws-iam-enforce-mfa
+policy = data.aws_iam_policy_document.test_policy.json # tunnel:ignore:aws-iam-enforce-mfa
 }
 
-# trivy:ignore:aws-iam-enforce-mfa
+# tunnel:ignore:aws-iam-enforce-mfa
 resource "aws_iam_group_policy_attachment" "test_policy_attachment" {
-group      = data.aws_iam_group.externally_defined_group.group_name # trivy:ignore:aws-iam-enforce-mfa
-policy_arn = aws_iam_policy.test_policy.arn # trivy:ignore:aws-iam-enforce-mfa
+group      = data.aws_iam_group.externally_defined_group.group_name # tunnel:ignore:aws-iam-enforce-mfa
+policy_arn = aws_iam_policy.test_policy.arn # tunnel:ignore:aws-iam-enforce-mfa
 }
 
-# trivy:ignore:aws-iam-enforce-mfa
+# tunnel:ignore:aws-iam-enforce-mfa
 data "aws_iam_policy_document" "test_policy" {
 statement {
-sid = "PublishToCloudWatch" # trivy:ignore:aws-iam-enforce-mfa
+sid = "PublishToCloudWatch" # tunnel:ignore:aws-iam-enforce-mfa
 actions = [
-"cloudwatch:PutMetricData", # trivy:ignore:aws-iam-enforce-mfa
+"cloudwatch:PutMetricData", # tunnel:ignore:aws-iam-enforce-mfa
 ]
-resources = ["*"] # trivy:ignore:aws-iam-enforce-mfa
+resources = ["*"] # tunnel:ignore:aws-iam-enforce-mfa
 }
 }
 `, assertLength: 0}}
@@ -447,24 +447,24 @@ resource "bad" "my-rule" {
 	assert.Len(t, results.GetFailed(), 0)
 }
 
-func Test_TrivyIgnoreIgnoreWithExpiryAndWorkspaceAndWorkspaceSupplied(t *testing.T) {
+func Test_TunnelIgnoreIgnoreWithExpiryAndWorkspaceAndWorkspaceSupplied(t *testing.T) {
 	reg := rules.Register(exampleRule, nil)
 	defer rules.Deregister(reg)
 
 	results := scanHCLWithWorkspace(t, `
-# trivy:ignore:aws-service-abc123:exp:2221-01-02:ws:testworkspace
+# tunnel:ignore:aws-service-abc123:exp:2221-01-02:ws:testworkspace
 resource "bad" "my-rule" {
 }
 `, "testworkspace")
 	assert.Len(t, results.GetFailed(), 0)
 }
 
-func Test_TrivyIgnoreIgnoreWithExpiryAndWorkspaceButWrongWorkspaceSupplied(t *testing.T) {
+func Test_TunnelIgnoreIgnoreWithExpiryAndWorkspaceButWrongWorkspaceSupplied(t *testing.T) {
 	reg := rules.Register(exampleRule, nil)
 	defer rules.Deregister(reg)
 
 	results := scanHCLWithWorkspace(t, `
-# trivy:ignore:aws-service-abc123:exp:2221-01-02:ws:otherworkspace
+# tunnel:ignore:aws-service-abc123:exp:2221-01-02:ws:otherworkspace
 resource "bad" "my-rule" {
 	
 }
@@ -472,12 +472,12 @@ resource "bad" "my-rule" {
 	assert.Len(t, results.GetFailed(), 1)
 }
 
-func Test_TrivyIgnoreWithAliasCodeStillIgnored(t *testing.T) {
+func Test_TunnelIgnoreWithAliasCodeStillIgnored(t *testing.T) {
 	reg := rules.Register(exampleRule, nil)
 	defer rules.Deregister(reg)
 
 	results := scanHCLWithWorkspace(t, `
-# trivy:ignore:aws-other-abc123
+# tunnel:ignore:aws-other-abc123
 resource "bad" "my-rule" {
 	
 }
@@ -485,13 +485,13 @@ resource "bad" "my-rule" {
 	assert.Len(t, results.GetFailed(), 0)
 }
 
-func Test_TrivyIgnoreInline(t *testing.T) {
+func Test_TunnelIgnoreInline(t *testing.T) {
 	reg := rules.Register(exampleRule, nil)
 	defer rules.Deregister(reg)
 
 	results := scanHCL(t, fmt.Sprintf(`
 	resource "bad" "sample" {
-		  secure = false # trivy:ignore:%s
+		  secure = false # tunnel:ignore:%s
 	}
 	  `, exampleRule.LongID()))
 	assert.Len(t, results.GetFailed(), 0)

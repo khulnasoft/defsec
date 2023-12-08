@@ -205,7 +205,7 @@ func (s *Scanner) runQuery(ctx context.Context, query string, input interface{},
 		return nil, nil, err
 	}
 
-	// we also build a slice of trace lines for per-result tracing - primarily for fanal/trivy
+	// we also build a slice of trace lines for per-result tracing - primarily for fanal/tunnel
 	var traces []string
 
 	if trace {
