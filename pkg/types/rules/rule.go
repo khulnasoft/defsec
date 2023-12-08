@@ -1,7 +1,7 @@
 package rules
 
 import (
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/khulnasoft/defsec/pkg/scan"
 )
 
 type RegisteredRule struct {

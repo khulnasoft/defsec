@@ -1,7 +1,7 @@
 package gke
 
 import (
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 )
 
 type GKE struct {
@@ -24,6 +24,7 @@ type Cluster struct {
 	ResourceLabels           defsecTypes.MapValue
 	RemoveDefaultNodePool    defsecTypes.BoolValue
 	EnableAutpilot           defsecTypes.BoolValue
+	DatapathProvider         defsecTypes.StringValue
 }
 
 type NodeConfig struct {

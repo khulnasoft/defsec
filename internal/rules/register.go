@@ -5,10 +5,10 @@ import (
 
 	"gopkg.in/yaml.v3"
 
-	"github.com/aquasecurity/defsec/pkg/framework"
-	"github.com/aquasecurity/defsec/pkg/scan"
-	dftypes "github.com/aquasecurity/defsec/pkg/types"
-	ruleTypes "github.com/aquasecurity/defsec/pkg/types/rules"
+	"github.com/khulnasoft/defsec/pkg/framework"
+	"github.com/khulnasoft/defsec/pkg/scan"
+	dftypes "github.com/khulnasoft/defsec/pkg/types"
+	ruleTypes "github.com/khulnasoft/defsec/pkg/types/rules"
 	"github.com/aquasecurity/trivy-policies/rules/specs"
 )
 

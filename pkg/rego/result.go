@@ -5,8 +5,8 @@ import (
 	"io/fs"
 	"strconv"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/khulnasoft/defsec/pkg/scan"
+	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 	"github.com/open-policy-agent/opa/rego"
 )
 
