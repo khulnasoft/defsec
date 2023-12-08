@@ -4,7 +4,7 @@ on:
     tags:
       - "v*"
 env:
-  GH_USER: khulnasoft
+  GH_USER: nxpkg
 jobs:
   build:
     runs-on: ubuntu-latest
