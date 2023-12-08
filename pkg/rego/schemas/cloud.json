@@ -2379,20 +2379,9 @@
     "github.com.khulnasoft.defsec.pkg.providers.aws.rds.Cluster": {
       "type": "object",
       "properties": {
-        "availabilityzones": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/github.com.khulnasoft.defsec.pkg.types.StringValue"
-          }
-        },
         "backupretentionperioddays": {
           "type": "object",
           "$ref": "#/definitions/github.com.khulnasoft.defsec.pkg.types.IntValue"
-        },
-        "deletionprotection": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft.defsec.pkg.types.BoolValue"
         },
         "encryption": {
           "type": "object",
@@ -2424,10 +2413,6 @@
         "replicationsourcearn": {
           "type": "object",
           "$ref": "#/definitions/github.com.khulnasoft.defsec.pkg.types.StringValue"
-        },
-        "skipfinalsnapshot": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft.defsec.pkg.types.BoolValue"
         }
       }
     },
@@ -5130,10 +5115,6 @@
     "github.com.khulnasoft.defsec.pkg.providers.google.gke.Cluster": {
       "type": "object",
       "properties": {
-        "enableautpilot": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft.defsec.pkg.types.BoolValue"
-        },
         "enablelegacyabac": {
           "type": "object",
           "$ref": "#/definitions/github.com.khulnasoft.defsec.pkg.types.BoolValue"

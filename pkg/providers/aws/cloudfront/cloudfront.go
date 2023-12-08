@@ -38,8 +38,6 @@ const (
 )
 
 type ViewerCertificate struct {
-	Metadata                     defsecTypes.Metadata
-	CloudfrontDefaultCertificate defsecTypes.BoolValue
-	SSLSupportMethod             defsecTypes.StringValue
-	MinimumProtocolVersion       defsecTypes.StringValue
+	Metadata               defsecTypes.Metadata
+	MinimumProtocolVersion defsecTypes.StringValue
 }
