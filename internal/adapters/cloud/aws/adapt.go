@@ -12,12 +12,12 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/service/sts"
 
-	"github.com/khulnasoft/defsec/internal/adapters/cloud/options"
-	"github.com/khulnasoft/defsec/pkg/progress"
-	"github.com/khulnasoft/defsec/pkg/state"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/aws/arn"
 	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/khulnasoft/defsec/internal/adapters/cloud/options"
+	"github.com/khulnasoft/defsec/pkg/progress"
+	"github.com/khulnasoft/defsec/pkg/state"
 )
 
 var registeredAdapters []ServiceAdapter

@@ -1,13 +1,13 @@
 package mq
 
 import (
+	api "github.com/aws/aws-sdk-go-v2/service/mq"
+	"github.com/aws/aws-sdk-go-v2/service/mq/types"
 	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/mq"
 	"github.com/khulnasoft/defsec/pkg/state"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
-	api "github.com/aws/aws-sdk-go-v2/service/mq"
-	"github.com/aws/aws-sdk-go-v2/service/mq/types"
 )
 
 type adapter struct {

@@ -1,14 +1,14 @@
 package dynamodb
 
 import (
+	"github.com/aws/aws-sdk-go-v2/aws"
+	dynamodbApi "github.com/aws/aws-sdk-go-v2/service/dynamodb"
+	dynamodbTypes "github.com/aws/aws-sdk-go-v2/service/dynamodb/types"
 	aws2 "github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/pkg/concurrency"
 	"github.com/khulnasoft/defsec/pkg/providers/aws/dynamodb"
 	"github.com/khulnasoft/defsec/pkg/state"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
-	"github.com/aws/aws-sdk-go-v2/aws"
-	dynamodbApi "github.com/aws/aws-sdk-go-v2/service/dynamodb"
-	dynamodbTypes "github.com/aws/aws-sdk-go-v2/service/dynamodb/types"
 )
 
 type adapter struct {

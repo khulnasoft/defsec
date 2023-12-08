@@ -8,8 +8,8 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/service/ec2/types"
 
-	"github.com/khulnasoft/defsec/pkg/providers/aws/ec2"
 	ec2api "github.com/aws/aws-sdk-go-v2/service/ec2"
+	"github.com/khulnasoft/defsec/pkg/providers/aws/ec2"
 )
 
 func (a *adapter) getVolumes() ([]ec2.Volume, error) {

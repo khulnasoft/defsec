@@ -8,10 +8,10 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/service/lambda/types"
 
+	lambdaapi "github.com/aws/aws-sdk-go-v2/service/lambda"
 	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws"
 	"github.com/khulnasoft/defsec/internal/adapters/cloud/aws/test"
 	"github.com/khulnasoft/defsec/pkg/state"
-	lambdaapi "github.com/aws/aws-sdk-go-v2/service/lambda"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
