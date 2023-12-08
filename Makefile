@@ -35,7 +35,7 @@ fix-typos:
 
 .PHONY: quality
 quality:
-	which golangci-lint || go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.47.2
+	which golangci-lint || go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.54.2
 	golangci-lint run --timeout 3m --verbose
 
 .PHONY: update-loader
@@ -76,6 +76,9 @@ outdated-api-updated:
 .PHONY: bundle
 bundle:
 	./scripts/bundle.sh
+	cp bundle.tar.gz scripts/bundle.tar.gz
+	go run ./scripts/verify-bundle.go
+	rm scripts/bundle.tar.gz
 
 .PHONY: build
 build:
