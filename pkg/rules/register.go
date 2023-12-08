@@ -4,21 +4,12 @@ import (
 	"github.com/khulnasoft/defsec/internal/rules"
 	"github.com/khulnasoft/defsec/pkg/framework"
 	"github.com/khulnasoft/defsec/pkg/scan"
-	ruleTypes "github.com/khulnasoft/defsec/pkg/types/rules"
 )
 
-func Register(rule scan.Rule) ruleTypes.RegisteredRule {
-	return rules.Register(rule)
+func Register(rule scan.Rule, f scan.CheckFunc) rules.RegisteredRule {
+	return rules.Register(rule, f)
 }
 
-func Deregister(rule ruleTypes.RegisteredRule) {
-	rules.Deregister(rule)
-}
-
-func GetRegistered(fw ...framework.Framework) []ruleTypes.RegisteredRule {
+func GetRegistered(fw ...framework.Framework) (registered []rules.RegisteredRule) {
 	return rules.GetFrameworkRules(fw...)
-}
-
-func GetSpecRules(spec string) []ruleTypes.RegisteredRule {
-	return rules.GetSpecRules(spec)
 }

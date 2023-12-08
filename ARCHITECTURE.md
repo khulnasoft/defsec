@@ -37,16 +37,11 @@ graph TD;
     dfparser --> rules
 ```
 
-## Component breakdown
-
-defsec is further divided into 3 high level components as shown below
-![defsec-components.png](.github/images/defsec-components.png)
-
 ## Scanning Overview
 
 The diagram below shows the process for parsing -> adapting -> scanning -> reporting.
 
-> Note: Source code files (Terraform, CloudFormation) come in on a filesystem. AWS cloud scanning is done with AWS Creds being passed by Trivy
+> Note: Source code files (Terraform, CloudFormation) come in on a filesystem. AWS cloud scanning is done with AWS Creds being passed by Tunnel
 
 
 
@@ -57,7 +52,7 @@ The diagram below shows the process for parsing -> adapting -> scanning -> repor
 The directory structure is broken down as follows:
 
 - `avd_docs/` - The source for the [AVD documentation](https://khulnasoft.github.io/avd/).
-- `cmd/` - The source for the `defsec` CLI. This CLI tool is primarily used during development for end-to-end testing without needing to pull the library into trivy/tfsec etc.
+- `cmd/` - The source for the `defsec` CLI. This CLI tool is primarily used during development for end-to-end testing without needing to pull the library into tunnel/tfsec etc.
 - `internal/adapters` - Adapters take input - such as a Terraform file or an AWS account - and _adapt_ it to a common format that can be used by the rules engine. This is where the bulk of the code is for supporting new cloud providers.
 - `rules` - All of the rules and policies are defined in this directory.
 - `pkg/detection` - Used for sniffing file types from both file name and content. This is done so that we can determine the type of file we're dealing with and then pass it to the correct parser.

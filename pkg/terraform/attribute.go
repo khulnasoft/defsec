@@ -8,11 +8,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/khulnasoft/defsec/pkg/terraform/context"
+	"github.com/khulnasoft/defsec/pkg/scanners/terraform/context"
 	defsecTypes "github.com/khulnasoft/defsec/pkg/types"
 
 	"github.com/hashicorp/hcl/v2"
-	"github.com/hashicorp/hcl/v2/ext/typeexpr"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
 	"github.com/zclconf/go-cty/cty"
 	"github.com/zclconf/go-cty/cty/gocty"
@@ -24,14 +23,6 @@ type Attribute struct {
 	ctx          *context.Context
 	metadata     defsecTypes.Metadata
 	reference    Reference
-}
-
-func (a *Attribute) DecodeVarType() (cty.Type, *typeexpr.Defaults, error) {
-	t, def, diag := typeexpr.TypeConstraintWithDefaults(a.hclAttribute.Expr)
-	if diag.HasErrors() {
-		return cty.NilType, nil, diag
-	}
-	return t, def, nil
 }
 
 func NewAttribute(attr *hcl.Attribute, ctx *context.Context, module string, parent defsecTypes.Metadata, parentRef Reference, moduleSource string, moduleFS fs.FS) *Attribute {
@@ -126,20 +117,9 @@ func (a *Attribute) AsStringValueOrDefault(defaultValue string, parent *Block) d
 	)
 }
 
-func (a *Attribute) AsStringValueSliceOrEmpty() (stringValues []defsecTypes.StringValue) {
+func (a *Attribute) AsStringValueSliceOrEmpty(parent *Block) (stringValues []defsecTypes.StringValue) {
 	if a.IsNil() {
 		return stringValues
-	}
-	return a.AsStringValues()
-}
-
-func (a *Attribute) AsStringValuesOrDefault(parent *Block, defaults ...string) []defsecTypes.StringValue {
-	if a.IsNil() {
-		res := make(defsecTypes.StringValueList, 0, len(defaults))
-		for _, def := range defaults {
-			res = append(res, defsecTypes.StringDefault(def, parent.GetMetadata()))
-		}
-		return res
 	}
 	return a.AsStringValues()
 }
@@ -226,14 +206,6 @@ func (a *Attribute) IsString() bool {
 		return false
 	}
 	return !a.Value().IsNull() && a.Value().IsKnown() && a.Value().Type() == cty.String
-}
-
-func (a *Attribute) IsMapOrObject() bool {
-	if a == nil || a.Value().IsNull() || !a.Value().IsKnown() {
-		return false
-	}
-
-	return a.Value().Type().IsObjectType() || a.Value().Type().IsMapType()
 }
 
 func (a *Attribute) IsNumber() bool {
@@ -821,21 +793,6 @@ func (a *Attribute) MapValue(mapKey string) cty.Value {
 	return cty.NilVal
 }
 
-func (a *Attribute) AsMapValue() defsecTypes.MapValue {
-	if a.IsNil() || a.IsNotResolvable() || !a.IsMapOrObject() {
-		return defsecTypes.MapValue{}
-	}
-
-	values := make(map[string]string)
-	_ = a.Each(func(key, val cty.Value) {
-		if key.Type() == cty.String && val.Type() == cty.String {
-			values[key.AsString()] = val.AsString()
-		}
-	})
-
-	return defsecTypes.Map(values, a.GetMetadata())
-}
-
 func (a *Attribute) LessThan(checkValue interface{}) bool {
 	if a == nil {
 		return false
@@ -927,7 +884,9 @@ func createDotReferenceFromTraversal(parentRef string, traversals ...hcl.Travers
 	if err != nil {
 		return nil, err
 	}
-	ref.SetKey(key)
+	if !key.IsNull() {
+		ref.SetKey(key)
+	}
 	return ref, nil
 }
 
