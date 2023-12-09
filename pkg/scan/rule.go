@@ -5,14 +5,20 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/khulnasoft/defsec/pkg/framework"
+
+	"golang.org/x/text/language"
+
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 
-	"github.com/khulnasoft/defsec/pkg/framework"
-	"github.com/khulnasoft/defsec/pkg/providers"
-	"github.com/khulnasoft/defsec/pkg/severity"
-	"github.com/khulnasoft/defsec/pkg/state"
 	"github.com/khulnasoft/defsec/pkg/terraform"
+
+	"github.com/khulnasoft/defsec/pkg/severity"
+
+	"github.com/khulnasoft/defsec/pkg/state"
+
+	"github.com/khulnasoft/defsec/pkg/providers"
 )
 
 type CheckFunc func(s *state.State) (results Results)
