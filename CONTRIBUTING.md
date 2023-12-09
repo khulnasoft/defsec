@@ -3,27 +3,19 @@
 
 Welcome, and thank you for considering contributing to defsec!
 
-The following guide gives an overview of the project and some directions on how to make common types of contribution. If something is missing or you get stuck, please [jump on Slack](https://slack.aquasec.com/) or [start a discussion](https://github.com/khulnasoft/defsec/discussions/new) and we'll do our best to help.
+The following guide gives an overview of the project and some directions on how to make common types of contribution. If something is missing, or you get stuck, please [start a discussion](https://github.com/khulnasoft/tunnel/discussions/new) and we'll do our best to help.
 
 ## Project Overview
 
-_defsec_ is a library for defining security rules and policies in code, and the tools to apply those rules/cloud/policies to a variety of sources. The general architecture and project layout are defined in [ARCHITECTURE.md](ARCHITECTURE.md) - this is a great place to start exploring.
+_defsec_ repo is a collection of shared libraries and packages that are imported by other useful packages such as `trivy-iac`, `trivy-aws` and also `Trivy` directly.
 
-_defsec_ is also the misconfiguration/IaC/Cloud scanning engine for Trivy. Trivy uses defsec internally as a library to perform various scans. 
+_trivy-iac_ is the collection of all Infrastructure-as-code libraries and packages that Trivy uses to perform IaC scanning. It also where you can find `schemas` to write custom polices.
 
-## Guides
+_trivy-aws_ is the AWS scanning component of Tunnel.
 
-The following are guides for contributing to the project in specific ways. If you're not sure where to start, these are a good place to look. If you need some tips on getting started with contributing to open source in general, check out this useful [GitHub contribution guide](https://docs.github.com/en/get-started/quickstart/contributing-to-projects).
+_trivy-policies_ is the repo that holds all misconfiguration checks for `Tunnel`. It also hosts the policy bundles for misconfiguration scanning that `Trivy` uses.
 
-### Writing Rules
-
-Writing a new rule can be relatively simple, but there are a few things to keep in mind. The following guide will help you get started.
-
-First of all, you should check if the provider your rule targets is supported by _defsec_. If it's not, you'll need to add support for it. See [Adding Support for a New Cloud Provider](#adding-support-for-a-new-cloud-provider) for more information. You can check if support exists by looking for a directory with the provider name in `pkg/providers`.  If you find your provider, navigate into the directory and check for a directory with the name of the service you're targeting. If you can't find that, you'll need to add support for it. See [Adding Support for a New Service](#adding-support-for-a-new-service) for more information.
-
-Next up, you'll need to check if the properties you want to target are supported, and if not, add support for them. The guide on [Adding Support for a New Service](#adding-support-for-a-new-service) covers adding new properties.
-
-At last, it's time to write your rule code! Rules are defined using _OPA Rego_. You can find a number of examples in the `rules/cloud/policies` directory. The [OPA documentation](https://www.openpolicyagent.org/docs/latest/policy-language/) is a great place to start learning Rego. You can also check out the [Rego Playground](https://play.openpolicyagent.org/) to experiment with Rego, and [join the OPA Slack](https://slack.openpolicyagent.org/).
+You can read more about the project overview on the [architecture](./ARCHITECTURE.md) page.
 
 Create a new file in `rules/cloud/policies` with the name of your rule. You should nest it in the existing directory structure as applicable. The package name should be in the format `builtin.PROVIDER.SERVICE.ID`, e.g. `builtin.aws.rds.aws0176`.
 
@@ -71,7 +63,7 @@ Let's break the metadata down.
 - `scope` is used to define the scope of the policy. In this case, we are defining a policy that applies to the entire package. _defsec_ only supports using package scope for metadata at the moment, so this should always be the same.
 - `schemas` tells Rego that it should use the `schema.input` to validate the use of the input data in the policy. Generally you can use this as-is in order to detect errors in your policy, such as referencing a policy which doesn't exist in the defsec schema.
 - `custom` is used to define custom fields that can be used by defsec to provide additional context to the policy and any related detections. This can contain the following:
-  - `avd_id` is the ID of the rule in the [AWS Vulnerability Database](https://avd.aquasec.com/). This is used to link the rule to the AVD entry. You can generate an ID to use for this field using `make id`.
+  - `avd_id` is the ID of the rule in the [AWS Vulnerability Database](https://avd.khulnasoft.com/). This is used to link the rule to the AVD entry. You can generate an ID to use for this field using `make id`.
   - `provider` is the name of the provider the rule targets. This should be the same as the provider name in the `pkg/providers` directory, e.g. `aws`.
   - `service` is the name of the service the rule targets. This should be the same as the service name in the `pkg/providers` directory, e.g. `rds`.
   - `severity` is the severity of the rule. This should be one of `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL`.
@@ -100,6 +92,8 @@ Finally, you'll want to run `make docs` to generate the documentation for your n
 
 You can see a full example PR for a new rule being added here: [https://github.com/khulnasoft/defsec/pull/1000](https://github.com/khulnasoft/defsec/pull/1000).
 
+### Writing New Policies
+You can find a guide to writing new policies [here](https://github.com/khulnasoft/tunnel-policies/blob/main/CONTRIBUTING.md#writing-rules)
 
 ### Adding Support for a New Cloud Provider
 
