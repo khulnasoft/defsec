@@ -51,7 +51,7 @@ The diagram below shows the process for parsing -> adapting -> scanning -> repor
 
 The directory structure is broken down as follows:
 
-- `avd_docs/` - The source for the [AVD documentation](https://aquasecurity.github.io/avd/).
+- `avd_docs/` - The source for the [AVD documentation](https://khulnasoft.github.io/avd/).
 - `cmd/` - The source for the `defsec` CLI. This CLI tool is primarily used during development for end-to-end testing without needing to pull the library into trivy/tfsec etc.
 - `internal/adapters` - Adapters take input - such as a Terraform file or an AWS account - and _adapt_ it to a common format that can be used by the rules engine. This is where the bulk of the code is for supporting new cloud providers.
 - `rules` - All of the rules and policies are defined in this directory.

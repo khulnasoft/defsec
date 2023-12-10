@@ -7,7 +7,6 @@ require (
 	github.com/Masterminds/semver v1.5.0
 	github.com/alecthomas/chroma v0.10.0
 	github.com/apparentlymart/go-cidr v1.1.0
-	github.com/aquasecurity/go-mock-aws v0.0.0-20230810212901-d6feebd39060
 	github.com/aws/aws-sdk-go v1.44.245
 	github.com/aws/aws-sdk-go-v2 v1.19.0
 	github.com/aws/aws-sdk-go-v2/config v1.18.15
@@ -76,8 +75,8 @@ require (
 )
 
 require (
-	github.com/aquasecurity/defsec v0.93.1
 	github.com/aws/smithy-go v1.13.5
+	github.com/khulnasoft/go-mock-aws v0.0.0-20231122183358-438e2fa97a36
 	github.com/mitchellh/mapstructure v1.5.0
 	k8s.io/utils v0.0.0-20230220204549-a5ecb0141aa5
 )
@@ -230,7 +229,6 @@ require (
 	go.opentelemetry.io/otel v1.14.0 // indirect
 	go.opentelemetry.io/otel/trace v1.14.0 // indirect
 	go.starlark.net v0.0.0-20200306205701-8dd3e2ee1dd5 // indirect
-	golang.org/x/exp v0.0.0-20230510235704-dd950f8aeaea // indirect
 	golang.org/x/mod v0.10.0 // indirect
 	golang.org/x/net v0.10.0 // indirect
 	golang.org/x/oauth2 v0.7.0 // indirect
@@ -270,4 +268,4 @@ require (
 // See https://github.com/moby/moby/issues/42939#issuecomment-1114255529
 replace github.com/docker/docker => github.com/docker/docker v20.10.24+incompatible
 
-replace github.com/elgohr/go-localstack => github.com/aquasecurity/go-localstack v0.0.0-20220706080605-1ec0e9b8753c
+replace github.com/elgohr/go-localstack => github.com/khulnasoft/go-localstack v0.0.0-20220706080605-1ec0e9b8753c

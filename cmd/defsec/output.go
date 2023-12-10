@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/aquasecurity/defsec/pkg/formatters"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/khulnasoft/defsec/pkg/formatters"
+	"github.com/khulnasoft/defsec/pkg/scan"
 )
 
 func outputResults(w io.Writer, baseDir string, results scan.Results) error {

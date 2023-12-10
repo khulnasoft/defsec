@@ -7,9 +7,9 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/aquasecurity/defsec/pkg/extrafs"
-	"github.com/aquasecurity/defsec/pkg/scanners/options"
-	"github.com/aquasecurity/defsec/pkg/scanners/universal"
+	"github.com/khulnasoft/defsec/pkg/extrafs"
+	"github.com/khulnasoft/defsec/pkg/scanners/options"
+	"github.com/khulnasoft/defsec/pkg/scanners/universal"
 )
 
 func init() {
