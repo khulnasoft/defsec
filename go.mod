@@ -1,10 +1,11 @@
-module github.com/aquasecurity/defsec
+module github.com/khulnasoft/defsec
 
 go 1.20
 
 require (
 	github.com/alecthomas/chroma v0.10.0
 	github.com/antchfx/htmlquery v1.3.0
+	github.com/aquasecurity/defsec v0.94.1
 	github.com/aquasecurity/trivy-policies v0.8.0
 	github.com/google/uuid v1.5.0
 	github.com/hashicorp/hcl/v2 v2.19.1
@@ -52,7 +53,6 @@ require (
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
-	github.com/kylelemons/godebug v1.1.0 // indirect
 	github.com/liamg/jfather v0.0.7 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.1 // indirect
