@@ -1,6 +1,6 @@
 module github.com/khulnasoft/defsec
 
-go 1.20
+go 1.19
 
 require (
 	github.com/alecthomas/chroma v0.10.0
