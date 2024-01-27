@@ -1,24 +1,22 @@
 package rules
 
 import (
-	"github.com/aquasecurity/defsec/internal/rules"
-	"github.com/aquasecurity/defsec/pkg/framework"
-	"github.com/aquasecurity/defsec/pkg/scan"
-	ruleTypes "github.com/aquasecurity/defsec/pkg/types/rules"
+	"github.com/khulnasoft/defsec/pkg/framework"
+	"github.com/khulnasoft/defsec/pkg/scan"
+	ruleTypes "github.com/khulnasoft/defsec/pkg/types/rules"
 )
 
 func Register(rule scan.Rule) ruleTypes.RegisteredRule {
-	return rules.Register(rule)
+	internalRule := convertToInternalRule(rule)
+	return convertToRegisteredRule(internalRule)
 }
 
-func Deregister(rule ruleTypes.RegisteredRule) {
-	rules.Deregister(rule)
+// Add other functions and conversions as needed
+
+func convertToInternalRule(rule scan.Rule) internalRuleType {
+	// Perform the necessary conversion.
 }
 
-func GetRegistered(fw ...framework.Framework) []ruleTypes.RegisteredRule {
-	return rules.GetFrameworkRules(fw...)
-}
-
-func GetSpecRules(spec string) []ruleTypes.RegisteredRule {
-	return rules.GetSpecRules(spec)
+func convertToRegisteredRule(internalRule internalRuleType) ruleTypes.RegisteredRule {
+	// Perform the necessary conversion.
 }
