@@ -1370,6 +1370,7 @@ var allowedActionsForResourceWildcardsMap = map[string]struct{}{
 	"datazone:ListDataSourceRuns": {},
 	"datazone:ListDataSources": {},
 	"datazone:ListDomains": {},
+	"datazone:ListEnvironmentBlueprintConfigurationSummaries": {},
 	"datazone:ListEnvironmentBlueprintConfigurations": {},
 	"datazone:ListEnvironmentBlueprints": {},
 	"datazone:ListEnvironmentProfiles": {},
