@@ -2736,6 +2736,7 @@ var allowedActionsForResourceWildcardsMap = map[string]struct{}{
 	"iotwireless:UpdateLogLevelsByResourceTypes": {},
 	"iq:span": {},
 	"ivs:ListEncoderConfigurations": {},
+	"ivs:ListPlaybackRestrictionPolicies": {},
 	"ivs:ListStorageConfigurations": {},
 	"kafka:DescribeClusterOperation": {},
 	"kafka:DescribeClusterOperationV2": {},
