@@ -3809,6 +3809,7 @@ var allowedActionsForResourceWildcardsMap = map[string]struct{}{
 	"redshift:GetReservedNodeExchangeConfigurationOptions": {},
 	"redshift:GetReservedNodeExchangeOfferings": {},
 	"redshift:ListDatabases": {},
+	"redshift:ListRecommendations": {},
 	"redshift:ListSavedQueries": {},
 	"redshift:ListSchemas": {},
 	"redshift:ListTables": {},
