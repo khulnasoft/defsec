@@ -3902,6 +3902,7 @@ var allowedActionsForResourceWildcardsMap = map[string]struct{}{
 	"resource-groups:CreateGroup": {},
 	"resource-groups:GetAccountSettings": {},
 	"resource-groups:ListGroups": {},
+	"resource-groups:ListResourceTypes": {},
 	"resource-groups:SearchResources": {},
 	"resource-groups:UpdateAccountSettings": {},
 	"rhelkb:GetRhelURL": {},
