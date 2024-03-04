@@ -8,7 +8,7 @@ require (
 	github.com/aquasecurity/defsec v0.94.1
 	github.com/aquasecurity/trivy-policies v0.8.0
 	github.com/google/uuid v1.5.0
-	github.com/hashicorp/hcl/v2 v2.19.1
+	github.com/hashicorp/hcl/v2 v2.20.0
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
 	github.com/mitchellh/mapstructure v1.5.0
