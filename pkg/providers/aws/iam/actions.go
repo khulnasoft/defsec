@@ -3147,6 +3147,7 @@ var allowedActionsForResourceWildcardsMap = map[string]struct{}{
 	"managedblockchain-query:GetTokenBalance": {},
 	"managedblockchain-query:GetTransaction": {},
 	"managedblockchain-query:ListAssetContracts": {},
+	"managedblockchain-query:ListFilteredTransactionEvents": {},
 	"managedblockchain-query:ListTokenBalances": {},
 	"managedblockchain-query:ListTransactionEvents": {},
 	"managedblockchain-query:ListTransactions": {},
