@@ -926,6 +926,7 @@ var allowedActionsForResourceWildcardsMap = map[string]struct{}{
 	"cloudwatch:PutManagedInsightRules": {},
 	"cloudwatch:PutMetricData": {},
 	"codeartifact:CreateDomain": {},
+	"codeartifact:CreatePackageGroup": {},
 	"codeartifact:CreateRepository": {},
 	"codeartifact:ListDomains": {},
 	"codeartifact:ListRepositories": {},
