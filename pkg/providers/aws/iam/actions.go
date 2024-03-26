@@ -2547,6 +2547,7 @@ var allowedActionsForResourceWildcardsMap = map[string]struct{}{
 	"inspector:SubscribeToEvent": {},
 	"inspector:UnsubscribeFromEvent": {},
 	"inspector:UpdateAssessmentTarget": {},
+	"internetmonitor:Link": {},
 	"internetmonitor:ListMonitors": {},
 	"invoicing:GetInvoiceEmailDeliveryPreferences": {},
 	"invoicing:GetInvoicePDF": {},
